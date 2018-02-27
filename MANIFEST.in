@@ -1,0 +1,3 @@
+recursive-include pretix_servicefees/static *
+recursive-include pretix_servicefees/templates *
+recursive-include pretix_servicefees/locale *
