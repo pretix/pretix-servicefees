@@ -7,8 +7,9 @@ from django.utils.translation import ugettext_lazy as _
 from pretix.base.models import Event, Order, TaxRule
 from pretix.base.models.orders import OrderFee
 from pretix.base.signals import order_fee_calculation
+from pretix.base.templatetags.money import money_filter
 from pretix.control.signals import nav_event_settings
-from pretix.presale.signals import fee_calculation_for_cart
+from pretix.presale.signals import fee_calculation_for_cart, front_page_top
 
 
 @receiver(nav_event_settings, dispatch_uid='service_fee_nav_settings')
@@ -58,3 +59,12 @@ def cart_fee(sender: Event, request: HttpRequest, invoice_address, total, **kwar
 @receiver(order_fee_calculation, dispatch_uid="service_fee_calc_order")
 def order_fee(sender: Event, invoice_address, total, **kwargs):
     return get_fees(sender, total, invoice_address)
+
+
+@receiver(front_page_top, dispatch_uid="service_fee_front_page_top")
+def front_page_top_recv(sender: Event, **kwargs):
+    fee = sender.settings.get('service_fee_abs', as_type=Decimal)
+    if fee:
+        return '<p>%s</p>' % _('A service fee of {} will be added on top of each order.'.format(
+            money_filter(fee, sender.currency)
+        ))
