@@ -3,7 +3,7 @@ from decimal import Decimal
 from django.urls import resolve, reverse
 from django.dispatch import receiver
 from django.http import HttpRequest
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext, get_language
 from pretix.base.models import Event, Order, TaxRule
 from pretix.base.models.orders import OrderFee
 from pretix.base.signals import order_fee_calculation
@@ -65,6 +65,6 @@ def order_fee(sender: Event, invoice_address, total, **kwargs):
 def front_page_top_recv(sender: Event, **kwargs):
     fee = sender.settings.get('service_fee_abs', as_type=Decimal)
     if fee:
-        return '<p>%s</p>' % _('A service fee of {} will be added on top of each order.'.format(
+        return '<p>%s</p>' % ugettext('A service fee of {} will be added on top of each order.').format(
             money_filter(fee, sender.currency)
-        ))
+        )
