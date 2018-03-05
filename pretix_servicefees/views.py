@@ -1,12 +1,13 @@
 from django import forms
 from django.urls import reverse
+from django.utils.translation import ugettext_lazy as _
 
 from pretix.base.forms import SettingsForm
 from pretix.base.models import Event
 from pretix.control.views.event import EventSettingsViewMixin, EventSettingsFormView
 
 class ServiceFeeSettingsForm(SettingsForm):
-    service_fee_abs = forms.DecimalField()
+    service_fee_abs = forms.DecimalField(label=_('Service fee'))
 
 
 class SettingsView(EventSettingsViewMixin, EventSettingsFormView):
