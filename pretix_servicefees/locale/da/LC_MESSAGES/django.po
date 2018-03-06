@@ -8,28 +8,25 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-06 12:23+0100\n"
-"PO-Revision-Date: 2018-03-06 15:29+0000\n"
-"Last-Translator: Raphael Michel <michel@rami.io>\n"
-"Language-Team: French <https://translate.pretix.eu/projects/pretix/pretix-"
-"plugin-service-fees/fr/>\n"
-"Language: fr\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.19.1\n"
 
 #: pretix_servicefees/__init__.py:10
 msgid "pretix Service Fees"
-msgstr "pretix Frais de service"
+msgstr ""
 
 #: pretix_servicefees/__init__.py:12
-msgid "This plugin allows to charge a service fee on all non-free orders."
+msgid "Allows you to impose a service fee on all non-free orders."
 msgstr ""
 
 #: pretix_servicefees/signals.py:19
 msgid "Service Fee"
-msgstr "Frais de service"
+msgstr ""
 
 #: pretix_servicefees/signals.py:68
 msgid "A service fee of {} will be added on top of each order."
@@ -37,7 +34,7 @@ msgstr ""
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:9
 msgid "Service fees"
-msgstr "Frais de service"
+msgstr ""
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:14
 msgid "Save"
@@ -45,4 +42,4 @@ msgstr ""
 
 #: pretix_servicefees/views.py:10
 msgid "Service fee"
-msgstr "Frais de service"
+msgstr ""
