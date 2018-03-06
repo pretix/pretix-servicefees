@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-06 12:23+0100\n"
+"POT-Creation-Date: 2018-03-06 16:37+0100\n"
 "PO-Revision-Date: 2018-03-06 14:50+0000\n"
 "Last-Translator: Raphael Michel <michel@rami.io>\n"
 "Language-Team: French <https://translate.pretix.eu/projects/pretix/pretix-"
@@ -25,7 +25,7 @@ msgid "pretix Service Fees"
 msgstr "pretix - Frais de service"
 
 #: pretix_servicefees/__init__.py:12
-msgid "Allows you to impose a service fee on all non-free orders."
+msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
 
 #: pretix_servicefees/signals.py:19
