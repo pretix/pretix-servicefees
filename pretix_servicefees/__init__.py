@@ -9,7 +9,7 @@ class PluginApp(AppConfig):
     class PretixPluginMeta:
         name = ugettext_lazy('pretix Service Fees')
         author = 'Raphael Michel'
-        description = ugettext_lazy('Allows you to impose a service fee on all non-free orders.')
+        description = ugettext_lazy('This plugin allows you to impose a service fee on all non-free orders.')
         visible = True
         version = '1.0.0'
 
