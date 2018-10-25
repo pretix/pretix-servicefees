@@ -9,7 +9,7 @@ from pretix.base.models.orders import OrderFee
 from pretix.base.signals import order_fee_calculation
 from pretix.base.templatetags.money import money_filter
 from pretix.control.signals import nav_event_settings
-from pretix.presale.signals import fee_calculation_for_cart, front_page_top
+from pretix.presale.signals import fee_calculation_for_cart, front_page_top, order_meta_from_request
 
 
 @receiver(nav_event_settings, dispatch_uid='service_fee_nav_settings')
@@ -25,8 +25,10 @@ def navbar_settings(sender, request, **kwargs):
     }]
 
 
-def get_fees(event, total, invoice_address):
-    fee = event.settings.get('service_fee_abs', as_type=Decimal)
+def get_fees(event, total, invoice_address, mod=''):
+    fee = event.settings.get('service_fee_abs' + mod, as_type=Decimal)
+    if mod and fee is None:
+        fee = event.settings.get('service_fee_abs', as_type=Decimal)
     if fee and total != Decimal('0.00'):
         tax_rule = event.settings.tax_rate_default or TaxRule.zero()
         if tax_rule.tax_applicable(invoice_address):
@@ -53,12 +55,27 @@ def get_fees(event, total, invoice_address):
 
 @receiver(fee_calculation_for_cart, dispatch_uid="service_fee_calc_cart")
 def cart_fee(sender: Event, request: HttpRequest, invoice_address, total, **kwargs):
-    return get_fees(sender, total, invoice_address)
+    mod = ''
+    try:
+        from pretix_resellers.utils import ResellerException, get_reseller_and_user
+    except ImportError:
+        pass
+    else:
+        try:
+            get_reseller_and_user(request)
+        except ResellerException:
+            pass
+        else:
+            mod = '_resellers'
+    return get_fees(sender, total, invoice_address, mod)
 
 
 @receiver(order_fee_calculation, dispatch_uid="service_fee_calc_order")
-def order_fee(sender: Event, invoice_address, total, **kwargs):
-    return get_fees(sender, total, invoice_address)
+def order_fee(sender: Event, invoice_address, total, meta_info, **kwargs):
+    mod = ''
+    if meta_info.get('servicefees_reseller_id'):
+        mod = '_resellers'
+    return get_fees(sender, total, invoice_address, mod)
 
 
 @receiver(front_page_top, dispatch_uid="service_fee_front_page_top")
@@ -68,3 +85,19 @@ def front_page_top_recv(sender: Event, **kwargs):
         return '<p>%s</p>' % ugettext('A service fee of {} will be added on top of each order.').format(
             money_filter(fee, sender.currency)
         )
+
+
+@receiver(order_meta_from_request, dispatch_uid="servicefees_order_meta")
+def order_meta_signal(sender: Event, request: HttpRequest, **kwargs):
+    meta = {}
+    try:
+        from pretix_resellers.utils import ResellerException, get_reseller_and_user
+    except ImportError:
+        pass
+    else:
+        try:
+            user, reseller = get_reseller_and_user(request)
+            meta['servicefees_reseller_id'] = reseller.pk
+        except ResellerException:
+            pass
+    return meta
