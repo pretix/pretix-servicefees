@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 17:59+0200\n"
+"POT-Creation-Date: 2018-12-06 10:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,18 +29,22 @@ msgstr ""
 msgid "Service Fee"
 msgstr ""
 
-#: pretix_servicefees/signals.py:68
+#: pretix_servicefees/signals.py:85
 msgid "A service fee of {} will be added on top of each order."
 msgstr ""
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:9
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 msgid "Service fees"
 msgstr ""
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:14
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:15
 msgid "Save"
 msgstr ""
 
-#: pretix_servicefees/views.py:10
+#: pretix_servicefees/views.py:11
 msgid "Service fee"
+msgstr ""
+
+#: pretix_servicefees/views.py:12
+msgid "Service fee with resellers"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 17:59+0200\n"
+"POT-Creation-Date: 2018-12-06 10:12+0100\n"
 "PO-Revision-Date: 2018-07-18 10:57+0000\n"
 "Last-Translator: Yunus Fırat Pişkin <firat.piskin@idvlabs.com>\n"
 "Language-Team: Turkish <https://translate.pretix.eu/projects/pretix/pretix-"
@@ -33,18 +33,24 @@ msgstr ""
 msgid "Service Fee"
 msgstr "Servis ücreti"
 
-#: pretix_servicefees/signals.py:68
+#: pretix_servicefees/signals.py:85
 msgid "A service fee of {} will be added on top of each order."
 msgstr "Her siparişin üstüne {} bir hizmet ücreti eklenecektir."
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:9
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 msgid "Service fees"
 msgstr "Servis ücretleri"
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:14
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:15
 msgid "Save"
 msgstr "Kaydet"
 
-#: pretix_servicefees/views.py:10
+#: pretix_servicefees/views.py:11
 msgid "Service fee"
 msgstr "Servis ücreti"
+
+#: pretix_servicefees/views.py:12
+#, fuzzy
+#| msgid "Service fees"
+msgid "Service fee with resellers"
+msgstr "Servis ücretleri"

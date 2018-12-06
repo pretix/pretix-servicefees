@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 17:59+0200\n"
+"POT-Creation-Date: 2018-12-06 10:12+0100\n"
 "PO-Revision-Date: 2018-03-08 17:05+0000\n"
 "Last-Translator: Raphael Michel <michel@rami.io>\n"
 "Language-Team: German (informal) <https://translate.pretix.eu/projects/"
@@ -28,18 +28,24 @@ msgstr ""
 msgid "Service Fee"
 msgstr "Servicegebühr"
 
-#: pretix_servicefees/signals.py:68
+#: pretix_servicefees/signals.py:85
 msgid "A service fee of {} will be added on top of each order."
 msgstr "Alle Preise zzgl. einer Servicegebühr von {} pro Bestellung."
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:9
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 msgid "Service fees"
 msgstr "Servicegebühren"
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:14
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:15
 msgid "Save"
 msgstr "Speichern"
 
-#: pretix_servicefees/views.py:10
+#: pretix_servicefees/views.py:11
 msgid "Service fee"
 msgstr "Servicegebühr"
+
+#: pretix_servicefees/views.py:12
+#, fuzzy
+#| msgid "Service fees"
+msgid "Service fee with resellers"
+msgstr "Servicegebühren"
