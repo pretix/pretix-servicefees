@@ -11,7 +11,7 @@ class PluginApp(AppConfig):
         author = 'Raphael Michel'
         description = ugettext_lazy('This plugin allows to charge a service fee on all non-free orders.')
         visible = True
-        version = '1.0.2'
+        version = '1.1.0'
 
     def ready(self):
         from . import signals  # NOQA
