@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-06 10:12+0100\n"
-"PO-Revision-Date: 2019-03-09 16:00+0000\n"
+"PO-Revision-Date: 2019-03-13 19:00+0000\n"
 "Last-Translator: yichengsd <sunzl@jxepub.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.pretix.eu/projects/"
 "pretix/pretix-plugin-service-fees/zh_Hans/>\n"
@@ -45,7 +45,7 @@ msgstr "保存"
 
 #: pretix_servicefees/views.py:11
 msgid "Service fee"
-msgstr ""
+msgstr "服务费用"
 
 #: pretix_servicefees/views.py:12
 msgid "Service fee with resellers"
