@@ -50,5 +50,13 @@ msgid "Service fee"
 msgstr "Servicekosten"
 
 #: pretix_servicefees/views.py:12
+msgid "Service fee (%)"
+msgstr "Servicekosten (%)"
+
+#: pretix_servicefees/views.py:13
 msgid "Service fee with resellers"
 msgstr "Servicekosten voor wederverkopers"
+
+#: pretix_servicefees/views.py:14
+msgid "Service fee with resellers (%)"
+msgstr "Servicekosten voor wederverkopers (%)"
