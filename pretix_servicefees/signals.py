@@ -90,10 +90,18 @@ def order_fee(sender: Event, invoice_address, total, meta_info, **kwargs):
 
 @receiver(front_page_top, dispatch_uid="service_fee_front_page_top")
 def front_page_top_recv(sender: Event, **kwargs):
-    fee = sender.settings.get('service_fee_abs', as_type=Decimal)
-    if fee:
+    fees = []
+    fee_abs = sender.settings.get('service_fee_abs', as_type=Decimal)
+    if fee_abs:
+        fees = fees + [money_filter(fee_abs, sender.currency)]
+
+    fee_percent = sender.settings.get('service_fee_percent', as_type=Decimal)
+    if fee_percent:
+        fees = fees + ['{} %'.format(fee_percent)]
+
+    if fee_abs or fee_percent:
         return '<p>%s</p>' % ugettext('A service fee of {} will be added on top of each order.').format(
-            money_filter(fee, sender.currency)
+            ' + '.join(fees)
         )
 
 
