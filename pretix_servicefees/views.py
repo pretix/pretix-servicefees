@@ -9,7 +9,9 @@ from pretix.control.views.event import EventSettingsViewMixin, EventSettingsForm
 
 class ServiceFeeSettingsForm(SettingsForm):
     service_fee_abs = forms.DecimalField(label=_('Service fee'))
+    service_fee_percent = forms.DecimalField(label=_('Service fee (%)'))
     service_fee_abs_resellers = forms.DecimalField(label=_('Service fee with resellers'))
+    service_fee_percent_resellers = forms.DecimalField(label=_('Service fee with resellers (%)'))
 
 
 class SettingsView(EventSettingsViewMixin, EventSettingsFormView):

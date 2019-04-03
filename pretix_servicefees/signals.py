@@ -26,10 +26,16 @@ def navbar_settings(sender, request, **kwargs):
 
 
 def get_fees(event, total, invoice_address, mod=''):
-    fee = event.settings.get('service_fee_abs' + mod, as_type=Decimal)
-    if mod and fee is None:
-        fee = event.settings.get('service_fee_abs', as_type=Decimal)
-    if fee and total != Decimal('0.00'):
+    fee_abs = event.settings.get('service_fee_abs' + mod, as_type=Decimal)
+    if mod and fee_abs is None:
+        fee_abs = event.settings.get('service_fee_abs', as_type=Decimal)
+
+    fee_percent = event.settings.get('service_fee_percent' + mod, as_type=Decimal)
+    if mod and fee_percent is None:
+        fee_percent = event.settings.get('service_fee_percent', as_type=Decimal)
+
+    if fee_abs and fee_percent and total != Decimal('0.00'):
+        fee = fee_abs + total * (fee_percent / 100)
         tax_rule = event.settings.tax_rate_default or TaxRule.zero()
         if tax_rule.tax_applicable(invoice_address):
             tax = tax_rule.tax(fee)

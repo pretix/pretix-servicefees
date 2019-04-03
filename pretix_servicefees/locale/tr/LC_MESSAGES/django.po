@@ -50,7 +50,15 @@ msgid "Service fee"
 msgstr "Servis ücreti"
 
 #: pretix_servicefees/views.py:12
+msgid "Service fee (%)"
+msgstr "Servis ücreti (%)"
+
+#: pretix_servicefees/views.py:13
 #, fuzzy
 #| msgid "Service fees"
 msgid "Service fee with resellers"
 msgstr "Servis ücretleri"
+
+#: pretix_servicefees/views.py:14
+msgid "Service fee with resellers (%)"
+msgstr "Servis ücretleri (%)"
