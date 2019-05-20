@@ -11,6 +11,7 @@ from pretix.base.signals import order_fee_calculation
 from pretix.base.templatetags.money import money_filter
 from pretix.control.signals import nav_event_settings
 from pretix.presale.signals import fee_calculation_for_cart, front_page_top, order_meta_from_request
+from pretix.presale.views import get_cart
 
 
 @receiver(nav_event_settings, dispatch_uid='service_fee_nav_settings')
@@ -26,7 +27,15 @@ def navbar_settings(sender, request, **kwargs):
     }]
 
 
-def get_fees(event, total, invoice_address, mod=''):
+def get_fees(event, total, invoice_address, mod='', request=None, positions=[]):
+    if request is not None and not positions:
+        positions = get_cart(request)
+    positions = [pos for pos in positions if not pos.addon_to and pos.price != Decimal('0.00')]
+
+    fee_per_ticket = event.settings.get('service_fee_per_ticket' + mod, as_type=Decimal)
+    if mod and fee_per_ticket is None:
+        fee_per_ticket = event.settings.get('service_fee_per_ticket', as_type=Decimal)
+
     fee_abs = event.settings.get('service_fee_abs' + mod, as_type=Decimal)
     if mod and fee_abs is None:
         fee_abs = event.settings.get('service_fee_abs', as_type=Decimal)
@@ -35,11 +44,12 @@ def get_fees(event, total, invoice_address, mod=''):
     if mod and fee_percent is None:
         fee_percent = event.settings.get('service_fee_percent', as_type=Decimal)
 
+    fee_per_ticket = Decimal("0") if fee_per_ticket is None else fee_per_ticket
     fee_abs = Decimal("0") if fee_abs is None else fee_abs
     fee_percent = Decimal("0") if fee_percent is None else fee_percent
 
-    if (fee_abs or fee_percent) and total != Decimal('0.00'):
-        fee = round_decimal(fee_abs + total * (fee_percent / 100), event.currency)
+    if (fee_per_ticket or fee_abs or fee_percent) and total != Decimal('0.00'):
+        fee = round_decimal(fee_abs + total * (fee_percent / 100) + len(positions) * fee_per_ticket, event.currency)
         tax_rule = event.settings.tax_rate_default or TaxRule.zero()
         if tax_rule.tax_applicable(invoice_address):
             tax = tax_rule.tax(fee)
@@ -77,31 +87,35 @@ def cart_fee(sender: Event, request: HttpRequest, invoice_address, total, **kwar
             pass
         else:
             mod = '_resellers'
-    return get_fees(sender, total, invoice_address, mod)
+    return get_fees(sender, total, invoice_address, mod, request)
 
 
 @receiver(order_fee_calculation, dispatch_uid="service_fee_calc_order")
-def order_fee(sender: Event, invoice_address, total, meta_info, **kwargs):
+def order_fee(sender: Event, positions, invoice_address, total, meta_info, **kwargs):
     mod = ''
     if meta_info.get('servicefees_reseller_id'):
         mod = '_resellers'
-    return get_fees(sender, total, invoice_address, mod)
+    return get_fees(sender, total, invoice_address, mod, positions=positions)
 
 
 @receiver(front_page_top, dispatch_uid="service_fee_front_page_top")
 def front_page_top_recv(sender: Event, **kwargs):
     fees = []
+    fee_per_ticket = sender.settings.get('service_fee_per_ticket', as_type=Decimal)
+    if fee_per_ticket:
+        fees = fees + ["{} {}".format(money_filter(fee_per_ticket, sender.currency), ugettext('per ticket'))]
+
     fee_abs = sender.settings.get('service_fee_abs', as_type=Decimal)
     if fee_abs:
-        fees = fees + [money_filter(fee_abs, sender.currency)]
+        fees = fees + ["{} {}".format(money_filter(fee_abs, sender.currency), ugettext('per order'))]
 
     fee_percent = sender.settings.get('service_fee_percent', as_type=Decimal)
     if fee_percent:
-        fees = fees + ['{} %'.format(fee_percent)]
+        fees = fees + ['{} % {}'.format(fee_percent, ugettext('per order'))]
 
-    if fee_abs or fee_percent:
+    if fee_per_ticket or fee_abs or fee_percent:
         return '<p>%s</p>' % ugettext('A service fee of {} will be added on top of each order.').format(
-            ' + '.join(fees)
+            ' {} '.format(ugettext('plus')).join(fees)
         )
 
 

@@ -7,10 +7,16 @@
         {% csrf_token %}
         {% bootstrap_form_errors form %}
         <fieldset>
-            {% bootstrap_field form.service_fee_abs layout="control" %}
-            {% bootstrap_field form.service_fee_percent layout="control" %}
-            {% bootstrap_field form.service_fee_abs_resellers layout="control" %}
-            {% bootstrap_field form.service_fee_percent_resellers layout="control" %}
+          <legend>{% trans "Service fees" %}</legend>
+            {% bootstrap_field form.service_fee_per_ticket addon_after=request.event.currency layout="control" %}
+            {% bootstrap_field form.service_fee_abs addon_after=request.event.currency layout="control" %}
+            {% bootstrap_field form.service_fee_percent addon_after="%" layout="control" %}
+        </fieldset>
+        <fieldset>
+          <legend>{% trans "Service fees with resellers" %}</legend>
+            {% bootstrap_field form.service_fee_per_ticket_resellers addon_after=request.event.currency layout="control" %}
+            {% bootstrap_field form.service_fee_abs_resellers addon_after=request.event.currency layout="control" %}
+            {% bootstrap_field form.service_fee_percent_resellers addon_after="%" layout="control" %}
         </fieldset>
         <div class="form-group submit-group">
             <button type="submit" class="btn btn-primary btn-save">
