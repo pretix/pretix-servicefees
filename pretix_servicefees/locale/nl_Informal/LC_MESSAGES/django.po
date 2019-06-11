@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-29 09:27+0200\n"
-"PO-Revision-Date: 2019-01-02 13:19+0000\n"
+"PO-Revision-Date: 2019-06-11 16:00+0000\n"
 "Last-Translator: Maarten van den Berg <maartenberg1@gmail.com>\n"
 "Language-Team: Dutch (informal) <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/nl_Informal/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.1.1\n"
+"X-Generator: Weblate 3.5.1\n"
 
 #: pretix_servicefees/__init__.py:10
 msgid "pretix Service Fees"
@@ -35,11 +35,11 @@ msgstr "Servicekosten"
 
 #: pretix_servicefees/signals.py:106
 msgid "per ticket"
-msgstr ""
+msgstr "per kaartje"
 
 #: pretix_servicefees/signals.py:110 pretix_servicefees/signals.py:114
 msgid "per order"
-msgstr ""
+msgstr "per bestelling"
 
 #: pretix_servicefees/signals.py:117
 msgid "A service fee of {} will be added on top of each order."
@@ -47,7 +47,7 @@ msgstr "{} aan servicekosten zullen worden toegevoegd aan iedere bestelling."
 
 #: pretix_servicefees/signals.py:118
 msgid "plus"
-msgstr ""
+msgstr "plus"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
@@ -55,8 +55,6 @@ msgid "Service fees"
 msgstr "Servicekosten"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:16
-#, fuzzy
-#| msgid "Service fee with resellers"
 msgid "Service fees with resellers"
 msgstr "Servicekosten voor wederverkopers"
 
@@ -66,6 +64,9 @@ msgid ""
 "do not want to charge any fees through this sales channel, set them to zero "
 "explicity."
 msgstr ""
+"Als je waarden leeg laat zullen we de hierboven ingestelde waarden "
+"gebruiken. Zet de waarden expliciet op nul als je geen servicekosten wilt "
+"rekenen voor dit verkoopkanaal."
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:26
 msgid "Save"
@@ -73,11 +74,11 @@ msgstr "Opslaan"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:30
 msgid "Fixed fee per order"
-msgstr ""
+msgstr "Vaste toeslag per bestelling"
 
 #: pretix_servicefees/views.py:17 pretix_servicefees/views.py:34
 msgid "Percentual fee per order"
-msgstr ""
+msgstr "Procentuele toeslag per bestelling"
 
 #: pretix_servicefees/views.py:18 pretix_servicefees/views.py:35
 msgid ""
@@ -85,16 +86,22 @@ msgid ""
 "be calculated on the summed price of sold tickets, not on other fees like e."
 "g. shipping fees, if there are any."
 msgstr ""
+"Percentage van het totaalbedrag van de bestelling. Merk op dat dit "
+"percentage alleen zal worden berekend over de prijzen van de verkochte "
+"kaartjes, en niet over andere toeslagen zoals verzendkosten, als deze er "
+"zijn."
 
 #: pretix_servicefees/views.py:24 pretix_servicefees/views.py:41
 msgid "Fixed fee per ticket"
-msgstr ""
+msgstr "Vaste toeslag per kaartje"
 
 #: pretix_servicefees/views.py:25 pretix_servicefees/views.py:43
 msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
 msgstr ""
+"Deze toeslag zal worden toegevoegd voor elk verkochte kaartje, behalve voor "
+"gratis producten en add-ons."
 
 #~ msgid "Service fee"
 #~ msgstr "Servicekosten"
