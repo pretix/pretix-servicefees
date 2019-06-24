@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-29 09:27+0200\n"
-"PO-Revision-Date: 2019-05-29 16:00+0000\n"
-"Last-Translator: Thomas Hollstegge <thomas.github@hollstegge.de>\n"
+"PO-Revision-Date: 2019-06-24 15:50+0000\n"
+"Last-Translator: Raphael Michel <michel@rami.io>\n"
 "Language-Team: German <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/de/>\n"
 "Language: de\n"
@@ -38,7 +38,7 @@ msgstr "pro Bestellung"
 
 #: pretix_servicefees/signals.py:117
 msgid "A service fee of {} will be added on top of each order."
-msgstr "Alle Preise zzgl. einer Servicegebühr von {} pro Bestellung."
+msgstr "Alle Preise zzgl. einer Servicegebühr von {}."
 
 #: pretix_servicefees/signals.py:118
 msgid "plus"
