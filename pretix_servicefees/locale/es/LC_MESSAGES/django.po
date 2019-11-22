@@ -8,53 +8,55 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-29 09:27+0200\n"
-"PO-Revision-Date: 2018-08-28 14:00+0000\n"
-"Last-Translator: oocf <oswaldocerna@gmail.com>\n"
-"Language-Team: Spanish <https://translate.pretix.eu/projects/pretix/pretix-"
-"plugin-service-fees/es/>\n"
+"PO-Revision-Date: 2019-11-22 10:00+0000\n"
+"Last-Translator: Carolina Fernández <cfermart@gmail.com>\n"
+"Language-Team: Spanish <https://translate.pretix.eu/projects/pretix/"
+"pretix-plugin-service-fees/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.1.1\n"
+"X-Generator: Weblate 3.5.1\n"
 
 #: pretix_servicefees/__init__.py:10
 msgid "pretix Service Fees"
-msgstr ""
+msgstr "Tasas de servicio de pretix"
 
 #: pretix_servicefees/__init__.py:12
 msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
+"Este plugin permite cobrar una tasa de servicio en todos los pedidos no "
+"gratuitos."
 
 #: pretix_servicefees/signals.py:21
 msgid "Service Fee"
-msgstr ""
+msgstr "Tasa de servicio"
 
 #: pretix_servicefees/signals.py:106
 msgid "per ticket"
-msgstr ""
+msgstr "por entrada"
 
 #: pretix_servicefees/signals.py:110 pretix_servicefees/signals.py:114
 msgid "per order"
-msgstr ""
+msgstr "por pedido"
 
 #: pretix_servicefees/signals.py:117
 msgid "A service fee of {} will be added on top of each order."
-msgstr ""
+msgstr "Se sumará una tasa de servicio de {} a cada pedido."
 
 #: pretix_servicefees/signals.py:118
 msgid "plus"
-msgstr ""
+msgstr "más"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
 msgid "Service fees"
-msgstr ""
+msgstr "Tasas de servicio"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:16
 msgid "Service fees with resellers"
-msgstr ""
+msgstr "Tasas de servicio para reventa"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:18
 msgid ""
@@ -62,6 +64,9 @@ msgid ""
 "do not want to charge any fees through this sales channel, set them to zero "
 "explicity."
 msgstr ""
+"Si se dejan valores vacíos, se usarán los valores por defecto de arriba. En "
+"caso de no querer aplicar ninguna tasa a través de este canal de venta, es "
+"conveniente definirlos explícitamente con valor cero."
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:26
 msgid "Save"
@@ -69,11 +74,11 @@ msgstr "Guardar"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:30
 msgid "Fixed fee per order"
-msgstr ""
+msgstr "Tasa fija por pedido"
 
 #: pretix_servicefees/views.py:17 pretix_servicefees/views.py:34
 msgid "Percentual fee per order"
-msgstr ""
+msgstr "Tasa porcentual por pedido"
 
 #: pretix_servicefees/views.py:18 pretix_servicefees/views.py:35
 msgid ""
@@ -81,16 +86,22 @@ msgid ""
 "be calculated on the summed price of sold tickets, not on other fees like e."
 "g. shipping fees, if there are any."
 msgstr ""
+"Porcentaje del pedido total. Este porcentaje se calculará únicamente sobre "
+"el precio total de entradas vendidas, no de otras tasas como p.ej. costes de "
+"envío, de haberlos."
 
 #: pretix_servicefees/views.py:24 pretix_servicefees/views.py:41
 msgid "Fixed fee per ticket"
-msgstr ""
+msgstr "Tasa fija por entrada"
 
 #: pretix_servicefees/views.py:25 pretix_servicefees/views.py:43
+#, fuzzy
 msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
 msgstr ""
+"Esta tasa se añadirá a cada entrada vendida, excepto por artículos gratuitos "
+"y addons."
 
 #~ msgid "Service fee"
 #~ msgstr "Tarifa por servicio"
