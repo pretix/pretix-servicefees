@@ -3,7 +3,7 @@ from decimal import Decimal
 from django.urls import resolve, reverse
 from django.dispatch import receiver
 from django.http import HttpRequest
-from django.utils.translation import ugettext_lazy as _, ugettext, get_language
+from django.utils.translation import gettext_lazy as _, gettext, get_language
 from pretix.base.decimal import round_decimal
 from pretix.base.models import Event, Order, TaxRule
 from pretix.base.models.orders import OrderFee
@@ -103,19 +103,19 @@ def front_page_top_recv(sender: Event, **kwargs):
     fees = []
     fee_per_ticket = sender.settings.get('service_fee_per_ticket', as_type=Decimal)
     if fee_per_ticket:
-        fees = fees + ["{} {}".format(money_filter(fee_per_ticket, sender.currency), ugettext('per ticket'))]
+        fees = fees + ["{} {}".format(money_filter(fee_per_ticket, sender.currency), gettext('per ticket'))]
 
     fee_abs = sender.settings.get('service_fee_abs', as_type=Decimal)
     if fee_abs:
-        fees = fees + ["{} {}".format(money_filter(fee_abs, sender.currency), ugettext('per order'))]
+        fees = fees + ["{} {}".format(money_filter(fee_abs, sender.currency), gettext('per order'))]
 
     fee_percent = sender.settings.get('service_fee_percent', as_type=Decimal)
     if fee_percent:
-        fees = fees + ['{} % {}'.format(fee_percent, ugettext('per order'))]
+        fees = fees + ['{} % {}'.format(fee_percent, gettext('per order'))]
 
     if fee_per_ticket or fee_abs or fee_percent:
-        return '<p>%s</p>' % ugettext('A service fee of {} will be added on top of each order.').format(
-            ' {} '.format(ugettext('plus')).join(fees)
+        return '<p>%s</p>' % gettext('A service fee of {} will be added on top of each order.').format(
+            ' {} '.format(gettext('plus')).join(fees)
         )
 
 

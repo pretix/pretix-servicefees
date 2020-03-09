@@ -1,5 +1,5 @@
 from django.apps import AppConfig
-from django.utils.translation import ugettext_lazy
+from django.utils.translation import gettext_lazy
 
 
 class PluginApp(AppConfig):
@@ -7,10 +7,10 @@ class PluginApp(AppConfig):
     verbose_name = 'Service Fees'
 
     class PretixPluginMeta:
-        name = ugettext_lazy('Service Fees')
+        name = gettext_lazy('Service Fees')
         author = 'Raphael Michel'
         category = 'FEATURE'
-        description = ugettext_lazy('This plugin allows to charge a service fee on all non-free orders.')
+        description = gettext_lazy('This plugin allows to charge a service fee on all non-free orders.')
         visible = True
         version = '1.3.2'
 
