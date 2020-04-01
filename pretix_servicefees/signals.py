@@ -12,6 +12,7 @@ from pretix.base.templatetags.money import money_filter
 from pretix.control.signals import nav_event_settings
 from pretix.presale.signals import fee_calculation_for_cart, front_page_top, order_meta_from_request
 from pretix.presale.views import get_cart
+from pretix.presale.views.cart import cart_session
 
 
 @receiver(nav_event_settings, dispatch_uid='service_fee_nav_settings')
@@ -47,6 +48,18 @@ def get_fees(event, total, invoice_address, mod='', request=None, positions=[]):
     fee_per_ticket = Decimal("0") if fee_per_ticket is None else fee_per_ticket
     fee_abs = Decimal("0") if fee_abs is None else fee_abs
     fee_percent = Decimal("0") if fee_percent is None else fee_percent
+
+    if event.settings.get('service_fee_skip_if_gift_card', as_type=bool):
+        cs = cart_session(request)
+        if cs.get('gift_cards'):
+            gc_qs = event.organizer.accepted_gift_cards.filter(pk__in=cs.get('gift_cards'), currency=event.currency)
+            summed = 0
+            for gc in gc_qs:
+                fval = Decimal(gc.value)  # TODO: don't require an extra query
+                fval = min(fval, total - summed)
+                if fval > 0:
+                    total -= fval
+                    summed += fval
 
     if (fee_per_ticket or fee_abs or fee_percent) and total != Decimal('0.00'):
         fee = round_decimal(fee_abs + total * (fee_percent / 100) + len(positions) * fee_per_ticket, event.currency)

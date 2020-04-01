@@ -25,6 +25,14 @@ class ServiceFeeSettingsForm(SettingsForm):
         help_text=_('This fee will be added for each ticket sold, except for free items and addons.'),
         required=False
     )
+    service_fee_skip_if_gift_card = forms.BooleanField(
+        label=_('Do not charge service fee on tickets paid with gift cards'),
+        help_text=_('If a gift card is used for the payment, the percentual fees will be applied on the value of the '
+                    'tickets minus the value of the gift cards. All fixed fees will be dropped if the tickets can '
+                    'be paid with gift cards entirely. This only works if the gift card is redeemd when the order is '
+                    'submitted, not if it\'s used to pay an unpaid order later.'),
+        required=False
+    )
 
     service_fee_abs_resellers = forms.DecimalField(
         label=_('Fixed fee per order'),
