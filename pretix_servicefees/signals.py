@@ -28,7 +28,7 @@ def navbar_settings(sender, request, **kwargs):
     }]
 
 
-def get_fees(event, total, invoice_address, mod='', request=None, positions=[]):
+def get_fees(event, total, invoice_address, mod='', request=None, positions=[], gift_cards=None):
     if request is not None and not positions:
         positions = get_cart(request)
     positions = [pos for pos in positions if not pos.addon_to and pos.price != Decimal('0.00')]
@@ -50,16 +50,18 @@ def get_fees(event, total, invoice_address, mod='', request=None, positions=[]):
     fee_percent = Decimal("0") if fee_percent is None else fee_percent
 
     if event.settings.get('service_fee_skip_if_gift_card', as_type=bool):
-        cs = cart_session(request)
-        if cs.get('gift_cards'):
-            gc_qs = event.organizer.accepted_gift_cards.filter(pk__in=cs.get('gift_cards'), currency=event.currency)
-            summed = 0
-            for gc in gc_qs:
-                fval = Decimal(gc.value)  # TODO: don't require an extra query
-                fval = min(fval, total - summed)
-                if fval > 0:
-                    total -= fval
-                    summed += fval
+        gift_cards = gift_cards or []
+        if request:
+            cs = cart_session(request)
+            if cs.get('gift_cards'):
+                gift_cards = event.organizer.accepted_gift_cards.filter(pk__in=cs.get('gift_cards'), currency=event.currency)
+        summed = 0
+        for gc in gift_cards:
+            fval = Decimal(gc.value)  # TODO: don't require an extra query
+            fval = min(fval, total - summed)
+            if fval > 0:
+                total -= fval
+                summed += fval
 
     if (fee_per_ticket or fee_abs or fee_percent) and total != Decimal('0.00'):
         fee = round_decimal(fee_abs + total * (fee_percent / 100) + len(positions) * fee_per_ticket, event.currency)
@@ -104,11 +106,11 @@ def cart_fee(sender: Event, request: HttpRequest, invoice_address, total, **kwar
 
 
 @receiver(order_fee_calculation, dispatch_uid="service_fee_calc_order")
-def order_fee(sender: Event, positions, invoice_address, total, meta_info, **kwargs):
+def order_fee(sender: Event, positions, invoice_address, total, meta_info, gift_cards, **kwargs):
     mod = ''
     if meta_info.get('servicefees_reseller_id'):
         mod = '_resellers'
-    return get_fees(sender, total, invoice_address, mod, positions=positions)
+    return get_fees(sender, total, invoice_address, mod, positions=positions, gift_cards=gift_cards)
 
 
 @receiver(front_page_top, dispatch_uid="service_fee_front_page_top")
