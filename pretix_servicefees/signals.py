@@ -31,7 +31,7 @@ def navbar_settings(sender, request, **kwargs):
 def get_fees(event, total, invoice_address, mod='', request=None, positions=[], gift_cards=None):
     if request is not None and not positions:
         positions = get_cart(request)
-    positions = [pos for pos in positions if not pos.addon_to and pos.price != Decimal('0.00')]
+    positions = [pos for pos in positions if not pos.addon_to_id and pos.price != Decimal('0.00')]
 
     fee_per_ticket = event.settings.get('service_fee_per_ticket' + mod, as_type=Decimal)
     if mod and fee_per_ticket is None:
@@ -97,7 +97,9 @@ def cart_fee(sender: Event, request: HttpRequest, invoice_address, total, **kwar
         pass
     else:
         try:
-            get_reseller_and_user(request)
+            reseller, user = get_reseller_and_user(request)
+            if getattr(reseller, 'do_not_charge_service_fees', False):
+                return []
         except ResellerException:
             pass
         else:
@@ -110,6 +112,15 @@ def order_fee(sender: Event, positions, invoice_address, total, meta_info, gift_
     mod = ''
     if meta_info.get('servicefees_reseller_id'):
         mod = '_resellers'
+        try:
+            from pretix_resellers.models import Reseller
+        except ImportError:
+            pass
+        else:
+            r = Reseller.objects.get(pk=meta_info.get('servicefees_reseller_id'))
+            if getattr(r, 'do_not_charge_service_fees', False):
+                return []
+
     return get_fees(sender, total, invoice_address, mod, positions=positions, gift_cards=gift_cards)
 
 
@@ -143,7 +154,7 @@ def order_meta_signal(sender: Event, request: HttpRequest, **kwargs):
         pass
     else:
         try:
-            user, reseller = get_reseller_and_user(request)
+            reseller, user = get_reseller_and_user(request)
             meta['servicefees_reseller_id'] = reseller.pk
         except ResellerException:
             pass
