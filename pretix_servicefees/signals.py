@@ -66,25 +66,15 @@ def get_fees(event, total, invoice_address, mod='', request=None, positions=[], 
     if (fee_per_ticket or fee_abs or fee_percent) and total != Decimal('0.00'):
         fee = round_decimal(fee_abs + total * (fee_percent / 100) + len(positions) * fee_per_ticket, event.currency)
         tax_rule = event.settings.tax_rate_default or TaxRule.zero()
-        if tax_rule.tax_applicable(invoice_address):
-            tax = tax_rule.tax(fee)
-            return [OrderFee(
-                fee_type=OrderFee.FEE_TYPE_SERVICE,
-                internal_type='',
-                value=fee,
-                tax_rate=tax.rate,
-                tax_value=tax.tax,
-                tax_rule=tax_rule
-            )]
-        else:
-            return [OrderFee(
-                fee_type=OrderFee.FEE_TYPE_SERVICE,
-                internal_type='',
-                value=fee,
-                tax_rate=Decimal('0.00'),
-                tax_value=Decimal('0.00'),
-                tax_rule=tax_rule
-            )]
+        tax = tax_rule.tax(fee, invoice_address=invoice_address, base_price_is='gross')
+        return [OrderFee(
+            fee_type=OrderFee.FEE_TYPE_SERVICE,
+            internal_type='',
+            value=fee,
+            tax_rate=tax.rate,
+            tax_value=tax.tax,
+            tax_rule=tax_rule
+        )]
     return []
 
 
