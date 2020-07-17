@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-01 17:11+0200\n"
-"PO-Revision-Date: 2019-06-11 16:00+0000\n"
+"PO-Revision-Date: 2020-04-08 20:00+0000\n"
 "Last-Translator: Maarten van den Berg <maartenberg1@gmail.com>\n"
 "Language-Team: Dutch (informal) <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/nl_Informal/>\n"
@@ -17,11 +17,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.10.3\n"
 
 #: pretix_servicefees/__init__.py:10
-#, fuzzy
-#| msgid "Service Fee"
 msgid "Service Fees"
 msgstr "Servicekosten"
 
@@ -107,7 +105,7 @@ msgstr ""
 
 #: pretix_servicefees/views.py:29
 msgid "Do not charge service fee on tickets paid with gift cards"
-msgstr ""
+msgstr "Reken geen servicekosten voor kaartjes betaald met cadeaubonnen"
 
 #: pretix_servicefees/views.py:30
 msgid ""
@@ -117,6 +115,12 @@ msgid ""
 "This only works if the gift card is redeemd when the order is submitted, not "
 "if it's used to pay an unpaid order later."
 msgstr ""
+"Als er een cadeaubon wordt gebruikt voor de betaling zullen de procentuele "
+"toeslagen worden berekend over de waarde van de kaartjes min de waarde van "
+"de cadeaubon. Alle vaste kosten vervallen als de kaartjes compleet met een "
+"of meerdere cadeaubonnen worden betaald. Dit werkt alleen als de cadeaubon "
+"wordt verzilverd wanneer de bestelling wordt geplaatst, en niet als de "
+"cadeaubon later wordt gebruikt om een onbetaalde bestelling te betalen."
 
 #~ msgid "pretix Service Fees"
 #~ msgstr "pretix Servicekosten"
