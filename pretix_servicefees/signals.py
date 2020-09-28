@@ -88,7 +88,8 @@ def cart_fee(sender: Event, request: HttpRequest, invoice_address, total, **kwar
     else:
         try:
             reseller, user = get_reseller_and_user(request)
-            if getattr(reseller, 'do_not_charge_service_fees', False):
+            config = reseller.configs.get(organizer_id=sender.organizer_id)
+            if config.skip_default_service_fees:
                 return []
         except ResellerException:
             pass
@@ -108,7 +109,8 @@ def order_fee(sender: Event, positions, invoice_address, total, meta_info, gift_
             pass
         else:
             r = Reseller.objects.get(pk=meta_info.get('servicefees_reseller_id'))
-            if getattr(r, 'do_not_charge_service_fees', False):
+            config = r.configs.get(organizer_id=sender.organizer_id)
+            if config.skip_default_service_fees:
                 return []
 
     return get_fees(sender, total, invoice_address, mod, positions=positions, gift_cards=gift_cards)
