@@ -8,17 +8,20 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-01 17:11+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-03-03 07:00+0000\n"
+"Last-Translator: helabasa <R45XvezA@pm.me>\n"
+"Language-Team: Sinhala <https://translate.pretix.eu/projects/pretix/"
+"pretix-plugin-service-fees/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: pretix_servicefees/__init__.py:10
 msgid "Service Fees"
-msgstr ""
+msgstr "සේවා ගාස්තු"
 
 #: pretix_servicefees/__init__.py:13
 msgid "This plugin allows to charge a service fee on all non-free orders."
@@ -62,7 +65,7 @@ msgstr ""
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:27
 msgid "Save"
-msgstr ""
+msgstr "සුරකින්න"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:38
 msgid "Fixed fee per order"
