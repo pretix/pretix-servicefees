@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _, gettext, get_language
 from pretix.base.decimal import round_decimal
 from pretix.base.models import Event, Order, TaxRule
 from pretix.base.models.orders import OrderFee
+from pretix.base.settings import settings_hierarkey
 from pretix.base.signals import order_fee_calculation
 from pretix.base.templatetags.money import money_filter
 from pretix.control.signals import nav_event_settings
@@ -32,6 +33,10 @@ def get_fees(event, total, invoice_address, mod='', request=None, positions=[], 
     if request is not None and not positions:
         positions = get_cart(request)
     positions = [pos for pos in positions if not pos.addon_to_id and pos.price != Decimal('0.00')]
+
+    skip_non_admission = event.settings.get('service_fee_skip_non_admission', as_type=bool)
+    if skip_non_admission:
+        positions = [pos for pos in positions if pos.item.admission]
 
     fee_per_ticket = event.settings.get('service_fee_per_ticket' + mod, as_type=Decimal)
     if mod and fee_per_ticket is None:
