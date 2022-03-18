@@ -32,7 +32,11 @@ def navbar_settings(sender, request, **kwargs):
 def get_fees(event, total, invoice_address, mod='', request=None, positions=[], gift_cards=None):
     if request is not None and not positions:
         positions = get_cart(request)
-    positions = [pos for pos in positions if not pos.addon_to_id and pos.price != Decimal('0.00')]
+    positions = [pos for pos in positions if pos.price != Decimal('0.00')]
+
+    skip_addons = event.settings.get('service_fee_skip_addons', as_type=bool)
+    if skip_addons:
+        positions = [pos for pos in positions if not pos.addon_to_id]
 
     skip_non_admission = event.settings.get('service_fee_skip_non_admission', as_type=bool)
     if skip_non_admission:
@@ -156,3 +160,6 @@ def order_meta_signal(sender: Event, request: HttpRequest, **kwargs):
         except ResellerException:
             pass
     return meta
+
+
+settings_hierarkey.add_default('service_fee_skip_addons', 'True', bool)

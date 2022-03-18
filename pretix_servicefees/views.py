@@ -33,6 +33,10 @@ class ServiceFeeSettingsForm(SettingsForm):
                     'submitted, not if it\'s used to pay an unpaid order later.'),
         required=False
     )
+    service_fee_skip_addons = forms.BooleanField(
+        label=_('Do not charge per-ticket service fee on add-on products'),
+        required=False
+    )
     service_fee_skip_non_admission = forms.BooleanField(
         label=_('Do not charge per-ticket service fee on non-admission products'),
         required=False

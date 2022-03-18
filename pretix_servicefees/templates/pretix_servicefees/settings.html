@@ -10,6 +10,7 @@
           <legend>{% trans "Service fees" %}</legend>
             {% bootstrap_field form.service_fee_per_ticket addon_after=request.event.currency layout="control" %}
             {% bootstrap_field form.service_fee_skip_non_admission layout="control" %}
+            {% bootstrap_field form.service_fee_skip_addons layout="control" %}
             {% bootstrap_field form.service_fee_abs addon_after=request.event.currency layout="control" %}
             {% bootstrap_field form.service_fee_percent addon_after="%" layout="control" %}
             {% bootstrap_field form.service_fee_skip_if_gift_card layout="control" %}
