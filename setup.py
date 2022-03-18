@@ -25,7 +25,7 @@ cmdclass = {
 
 setup(
     name='pretix-servicefees',
-    version='1.6.0',
+    version='1.7.0',
     description='Allows you to impose a service fee on all non-free orders.',
     long_description=long_description,
     url='https://github.com/pretix/pretix-servicefees',
