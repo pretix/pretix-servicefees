@@ -41,6 +41,10 @@ class ServiceFeeSettingsForm(SettingsForm):
         label=_('Do not charge per-ticket service fee on non-admission products'),
         required=False
     )
+    service_fee_skip_free = forms.BooleanField(
+        label=_('Do not charge per-ticket service fee on free products UNLESS the entire order is free'),
+        required=False
+    )
 
     service_fee_abs_resellers = forms.DecimalField(
         label=_('Fixed fee per order'),
