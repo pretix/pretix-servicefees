@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-01 17:11+0200\n"
+"POT-Creation-Date: 2022-03-31 21:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,23 +25,23 @@ msgstr ""
 msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
 
-#: pretix_servicefees/signals.py:22
+#: pretix_servicefees/signals.py:23
 msgid "Service Fee"
 msgstr ""
 
-#: pretix_servicefees/signals.py:119
+#: pretix_servicefees/signals.py:136
 msgid "per ticket"
 msgstr ""
 
-#: pretix_servicefees/signals.py:123 pretix_servicefees/signals.py:127
+#: pretix_servicefees/signals.py:140 pretix_servicefees/signals.py:144
 msgid "per order"
 msgstr ""
 
-#: pretix_servicefees/signals.py:130
+#: pretix_servicefees/signals.py:147
 msgid "A service fee of {} will be added on top of each order."
 msgstr ""
 
-#: pretix_servicefees/signals.py:131
+#: pretix_servicefees/signals.py:148
 msgid "plus"
 msgstr ""
 
@@ -50,41 +50,41 @@ msgstr ""
 msgid "Service fees"
 msgstr ""
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:17
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:20
 msgid "Service fees with resellers"
 msgstr ""
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:19
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:22
 msgid ""
 "If you keep values empty, we will fall back to the values from above. If you "
 "do not want to charge any fees through this sales channel, set them to zero "
 "explicity."
 msgstr ""
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:27
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:30
 msgid "Save"
 msgstr ""
 
-#: pretix_servicefees/views.py:13 pretix_servicefees/views.py:38
+#: pretix_servicefees/views.py:13 pretix_servicefees/views.py:51
 msgid "Fixed fee per order"
 msgstr ""
 
-#: pretix_servicefees/views.py:17 pretix_servicefees/views.py:42
+#: pretix_servicefees/views.py:17 pretix_servicefees/views.py:55
 msgid "Percentual fee per order"
 msgstr ""
 
-#: pretix_servicefees/views.py:18 pretix_servicefees/views.py:43
+#: pretix_servicefees/views.py:18 pretix_servicefees/views.py:56
 msgid ""
 "Percentage of the order total. Note that this percentage will currently only "
 "be calculated on the summed price of sold tickets, not on other fees like e."
 "g. shipping fees, if there are any."
 msgstr ""
 
-#: pretix_servicefees/views.py:24 pretix_servicefees/views.py:49
+#: pretix_servicefees/views.py:24 pretix_servicefees/views.py:62
 msgid "Fixed fee per ticket"
 msgstr ""
 
-#: pretix_servicefees/views.py:25 pretix_servicefees/views.py:51
+#: pretix_servicefees/views.py:25 pretix_servicefees/views.py:64
 msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
@@ -101,4 +101,22 @@ msgid ""
 "fees will be dropped if the tickets can be paid with gift cards entirely. "
 "This only works if the gift card is redeemd when the order is submitted, not "
 "if it's used to pay an unpaid order later."
+msgstr ""
+
+#: pretix_servicefees/views.py:37
+msgid "Do not charge per-ticket service fee on add-on products"
+msgstr ""
+
+#: pretix_servicefees/views.py:41
+msgid "Do not charge per-ticket service fee on non-admission products"
+msgstr ""
+
+#: pretix_servicefees/views.py:45
+msgid "Do not charge per-ticket service fee on free products"
+msgstr ""
+
+#: pretix_servicefees/views.py:46
+msgid ""
+"Note that regardless of this setting, a per-ticket fee will not be charged "
+"if the entire order is free."
 msgstr ""

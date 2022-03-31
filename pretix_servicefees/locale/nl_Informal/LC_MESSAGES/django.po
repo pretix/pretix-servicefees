@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-01 17:11+0200\n"
+"POT-Creation-Date: 2022-03-31 21:19+0200\n"
 "PO-Revision-Date: 2020-04-08 20:00+0000\n"
 "Last-Translator: Maarten van den Berg <maartenberg1@gmail.com>\n"
 "Language-Team: Dutch (informal) <https://translate.pretix.eu/projects/pretix/"
@@ -29,23 +29,23 @@ msgstr ""
 "Deze plug-in staat je toe om servicekosten te rekenen over alle betaalde "
 "bestellingen."
 
-#: pretix_servicefees/signals.py:22
+#: pretix_servicefees/signals.py:23
 msgid "Service Fee"
 msgstr "Servicekosten"
 
-#: pretix_servicefees/signals.py:119
+#: pretix_servicefees/signals.py:136
 msgid "per ticket"
 msgstr "per kaartje"
 
-#: pretix_servicefees/signals.py:123 pretix_servicefees/signals.py:127
+#: pretix_servicefees/signals.py:140 pretix_servicefees/signals.py:144
 msgid "per order"
 msgstr "per bestelling"
 
-#: pretix_servicefees/signals.py:130
+#: pretix_servicefees/signals.py:147
 msgid "A service fee of {} will be added on top of each order."
 msgstr "{} aan servicekosten zullen worden toegevoegd aan iedere bestelling."
 
-#: pretix_servicefees/signals.py:131
+#: pretix_servicefees/signals.py:148
 msgid "plus"
 msgstr "plus"
 
@@ -54,11 +54,11 @@ msgstr "plus"
 msgid "Service fees"
 msgstr "Servicekosten"
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:17
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:20
 msgid "Service fees with resellers"
 msgstr "Servicekosten voor wederverkopers"
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:19
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:22
 msgid ""
 "If you keep values empty, we will fall back to the values from above. If you "
 "do not want to charge any fees through this sales channel, set them to zero "
@@ -68,19 +68,19 @@ msgstr ""
 "gebruiken. Zet de waarden expliciet op nul als je geen servicekosten wilt "
 "rekenen voor dit verkoopkanaal."
 
-#: pretix_servicefees/templates/pretix_servicefees/settings.html:27
+#: pretix_servicefees/templates/pretix_servicefees/settings.html:30
 msgid "Save"
 msgstr "Opslaan"
 
-#: pretix_servicefees/views.py:13 pretix_servicefees/views.py:38
+#: pretix_servicefees/views.py:13 pretix_servicefees/views.py:51
 msgid "Fixed fee per order"
 msgstr "Vaste toeslag per bestelling"
 
-#: pretix_servicefees/views.py:17 pretix_servicefees/views.py:42
+#: pretix_servicefees/views.py:17 pretix_servicefees/views.py:55
 msgid "Percentual fee per order"
 msgstr "Procentuele toeslag per bestelling"
 
-#: pretix_servicefees/views.py:18 pretix_servicefees/views.py:43
+#: pretix_servicefees/views.py:18 pretix_servicefees/views.py:56
 msgid ""
 "Percentage of the order total. Note that this percentage will currently only "
 "be calculated on the summed price of sold tickets, not on other fees like e."
@@ -91,11 +91,11 @@ msgstr ""
 "kaartjes, en niet over andere toeslagen zoals verzendkosten, als deze er "
 "zijn."
 
-#: pretix_servicefees/views.py:24 pretix_servicefees/views.py:49
+#: pretix_servicefees/views.py:24 pretix_servicefees/views.py:62
 msgid "Fixed fee per ticket"
 msgstr "Vaste toeslag per kaartje"
 
-#: pretix_servicefees/views.py:25 pretix_servicefees/views.py:51
+#: pretix_servicefees/views.py:25 pretix_servicefees/views.py:64
 msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
@@ -121,6 +121,30 @@ msgstr ""
 "of meerdere cadeaubonnen worden betaald. Dit werkt alleen als de cadeaubon "
 "wordt verzilverd wanneer de bestelling wordt geplaatst, en niet als de "
 "cadeaubon later wordt gebruikt om een onbetaalde bestelling te betalen."
+
+#: pretix_servicefees/views.py:37
+#, fuzzy
+#| msgid "Do not charge service fee on tickets paid with gift cards"
+msgid "Do not charge per-ticket service fee on add-on products"
+msgstr "Reken geen servicekosten voor kaartjes betaald met cadeaubonnen"
+
+#: pretix_servicefees/views.py:41
+#, fuzzy
+#| msgid "Do not charge service fee on tickets paid with gift cards"
+msgid "Do not charge per-ticket service fee on non-admission products"
+msgstr "Reken geen servicekosten voor kaartjes betaald met cadeaubonnen"
+
+#: pretix_servicefees/views.py:45
+#, fuzzy
+#| msgid "Do not charge service fee on tickets paid with gift cards"
+msgid "Do not charge per-ticket service fee on free products"
+msgstr "Reken geen servicekosten voor kaartjes betaald met cadeaubonnen"
+
+#: pretix_servicefees/views.py:46
+msgid ""
+"Note that regardless of this setting, a per-ticket fee will not be charged "
+"if the entire order is free."
+msgstr ""
 
 #~ msgid "pretix Service Fees"
 #~ msgstr "pretix Servicekosten"
