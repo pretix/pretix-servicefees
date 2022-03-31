@@ -42,7 +42,8 @@ class ServiceFeeSettingsForm(SettingsForm):
         required=False
     )
     service_fee_skip_free = forms.BooleanField(
-        label=_('Do not charge per-ticket service fee on free products UNLESS the entire order is free'),
+        label=_('Do not charge per-ticket service fee on free products'),
+        help_text=_('Note that regardless of this setting, a per-ticket fee will not be charged if the entire order is free.'),
         required=False
     )
 
