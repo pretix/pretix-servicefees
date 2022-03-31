@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-31 21:19+0200\n"
-"PO-Revision-Date: 2021-04-21 15:12+0000\n"
+"PO-Revision-Date: 2022-03-31 19:40+0000\n"
 "Last-Translator: Raphael Michel <michel@rami.io>\n"
 "Language-Team: German (informal) <https://translate.pretix.eu/projects/"
 "pretix/pretix-plugin-service-fees/de_Informal/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.11.2\n"
 
 #: pretix_servicefees/__init__.py:10
 msgid "Service Fees"
@@ -119,34 +119,24 @@ msgstr ""
 "wird."
 
 #: pretix_servicefees/views.py:37
-#, fuzzy
-#| msgid "Do not charge service fee on tickets paid with gift cards"
 msgid "Do not charge per-ticket service fee on add-on products"
-msgstr ""
-"Berechne keine Servicegebühren für Tickets, die mit Wertgutscheinen bezahlt "
-"werden"
+msgstr "Berechne keine Servicegebühren pro Ticket für Zusatzprodukte"
 
 #: pretix_servicefees/views.py:41
-#, fuzzy
-#| msgid "Do not charge service fee on tickets paid with gift cards"
 msgid "Do not charge per-ticket service fee on non-admission products"
-msgstr ""
-"Berechne keine Servicegebühren für Tickets, die mit Wertgutscheinen bezahlt "
-"werden"
+msgstr "Berechne Servicegebühren pro Ticket nur für Zutrittsprodukte"
 
 #: pretix_servicefees/views.py:45
-#, fuzzy
-#| msgid "Do not charge service fee on tickets paid with gift cards"
 msgid "Do not charge per-ticket service fee on free products"
-msgstr ""
-"Berechne keine Servicegebühren für Tickets, die mit Wertgutscheinen bezahlt "
-"werden"
+msgstr "Berechne keine Servicegebühren pro Ticket für kostenlose Produkte"
 
 #: pretix_servicefees/views.py:46
 msgid ""
 "Note that regardless of this setting, a per-ticket fee will not be charged "
 "if the entire order is free."
 msgstr ""
+"Unabhängig von dieser Einstellung wird eine Servicegebühr pro Ticket nie "
+"erhoben, wenn die Bestellung insgesamt kostenlos ist."
 
 #~ msgid "pretix Service Fees"
 #~ msgstr "pretix Servicegebühren"
