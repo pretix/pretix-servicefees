@@ -3,7 +3,7 @@ pypi:
         - cp /keys/.pypirc ~/.pypirc
         - virtualenv env
         - source env/bin/activate
-        - XDG_CACHE_HOME=/cache pip3 install -U pip wheel setuptools
+        - XDG_CACHE_HOME=/cache pip3 install -U pip wheel setuptools twine
         - XDG_CACHE_HOME=/cache pip3 install -U pretix
         - python setup.py develop
         - python setup.py sdist bdist_wheel
