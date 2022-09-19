@@ -124,16 +124,6 @@ def get_fees(event, total, invoice_address, mod='', request=None, positions=[], 
             ))
         return fees
 
-        tax_rule = event.settings.tax_rate_default or TaxRule.zero()
-        tax = tax_rule.tax(fee, invoice_address=invoice_address, base_price_is='gross')
-        return [OrderFee(
-            fee_type=OrderFee.FEE_TYPE_SERVICE,
-            internal_type='',
-            value=fee,
-            tax_rate=tax.rate,
-            tax_value=tax.tax,
-            tax_rule=tax_rule
-        )]
     return []
 
 
