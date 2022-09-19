@@ -1,10 +1,9 @@
 from collections import defaultdict
 from decimal import Decimal
-
-from django.urls import resolve, reverse
 from django.dispatch import receiver
 from django.http import HttpRequest
-from django.utils.translation import gettext_lazy as _, gettext, get_language
+from django.urls import resolve, reverse
+from django.utils.translation import get_language, gettext, gettext_lazy as _
 from pretix.base.decimal import round_decimal
 from pretix.base.models import CartPosition, Event, Order, TaxRule
 from pretix.base.models.orders import OrderFee
@@ -12,7 +11,9 @@ from pretix.base.settings import settings_hierarkey
 from pretix.base.signals import order_fee_calculation
 from pretix.base.templatetags.money import money_filter
 from pretix.control.signals import nav_event_settings
-from pretix.presale.signals import fee_calculation_for_cart, front_page_top, order_meta_from_request
+from pretix.presale.signals import (
+    fee_calculation_for_cart, front_page_top, order_meta_from_request,
+)
 from pretix.presale.views import get_cart
 from pretix.presale.views.cart import cart_session
 
@@ -140,7 +141,9 @@ def get_fees(event, total, invoice_address, mod='', request=None, positions=[], 
 def cart_fee(sender: Event, request: HttpRequest, invoice_address, total, **kwargs):
     mod = ''
     try:
-        from pretix_resellers.utils import ResellerException, get_reseller_and_user
+        from pretix_resellers.utils import (
+            ResellerException, get_reseller_and_user,
+        )
     except ImportError:
         pass
     else:
@@ -199,7 +202,9 @@ def front_page_top_recv(sender: Event, **kwargs):
 def order_meta_signal(sender: Event, request: HttpRequest, **kwargs):
     meta = {}
     try:
-        from pretix_resellers.utils import ResellerException, get_reseller_and_user
+        from pretix_resellers.utils import (
+            ResellerException, get_reseller_and_user,
+        )
     except ImportError:
         pass
     else:
