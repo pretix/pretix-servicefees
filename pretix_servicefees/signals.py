@@ -1,3 +1,4 @@
+from collections import defaultdict
 from decimal import Decimal
 
 from django.urls import resolve, reverse
@@ -5,7 +6,7 @@ from django.dispatch import receiver
 from django.http import HttpRequest
 from django.utils.translation import gettext_lazy as _, gettext, get_language
 from pretix.base.decimal import round_decimal
-from pretix.base.models import Event, Order, TaxRule
+from pretix.base.models import CartPosition, Event, Order, TaxRule
 from pretix.base.models.orders import OrderFee
 from pretix.base.settings import settings_hierarkey
 from pretix.base.signals import order_fee_calculation
@@ -76,7 +77,52 @@ def get_fees(event, total, invoice_address, mod='', request=None, positions=[], 
                 summed += fval
 
     if (fee_per_ticket or fee_abs or fee_percent) and total != Decimal('0.00'):
+        tax_rule_zero = TaxRule.zero()
         fee = round_decimal(fee_abs + total * (fee_percent / 100) + len(positions) * fee_per_ticket, event.currency)
+        split_taxes = event.settings.get('service_fee_split_taxes', as_type=bool)
+        if split_taxes:
+            # split taxes based on products ordered
+            d = defaultdict(lambda: Decimal('0.00'))
+            for p in positions:
+                if isinstance(p, CartPosition):
+                    tr = p.item.tax_rule
+                else:
+                    tr = p.tax_rule
+                d[tr] += p.price - p.tax_value
+
+            base_values = sorted([tuple(t) for t in d.items()], key=lambda t: t[0].rate)
+            sum_base = sum(t[1] for t in base_values)
+            if sum_base:
+                fee_values = [(t[0], round_decimal(fee * t[1] / sum_base, event.currency))
+                              for t in base_values]
+                sum_fee = sum(t[1] for t in fee_values)
+
+                # If there are rounding differences, we fix them up, but always leaning to the benefit of the tax
+                # authorities
+                if sum_fee > fee:
+                    fee_values[0] = (fee_values[0][0], fee_values[0][1] + (fee - sum_fee))
+                elif sum_fee < fee:
+                    fee_values[-1] = (fee_values[-1][0], fee_values[-1][1] + (fee - sum_fee))
+            else:
+                fee_values = [(event.settings.tax_rate_default or tax_rule_zero, fee)]
+
+        else:
+            fee_values = [(event.settings.tax_rate_default or tax_rule_zero, fee)]
+
+        fees = []
+        for tax_rule, price in fee_values:
+            tax_rule = tax_rule or tax_rule_zero
+            tax = tax_rule.tax(price, invoice_address=invoice_address, base_price_is='gross')
+            fees.append(OrderFee(
+                fee_type=OrderFee.FEE_TYPE_SERVICE,
+                internal_type='',
+                value=price,
+                tax_rate=tax.rate,
+                tax_value=tax.tax,
+                tax_rule=tax_rule
+            ))
+        return fees
+
         tax_rule = event.settings.tax_rate_default or TaxRule.zero()
         tax = tax_rule.tax(fee, invoice_address=invoice_address, base_price_is='gross')
         return [OrderFee(

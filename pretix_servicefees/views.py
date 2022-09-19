@@ -46,6 +46,11 @@ class ServiceFeeSettingsForm(SettingsForm):
         help_text=_('Note that regardless of this setting, a per-ticket fee will not be charged if the entire order is free.'),
         required=False
     )
+    service_fee_split_taxes = forms.BooleanField(
+        label=_('Split taxes proportionate to the tax rates and net values of the ordered products.'),
+        help_text=_('If not split based on ordered products, the tax rate falls back to the event’s base tax rate or no tax, if none is given.'),
+        required=False
+    )
 
     service_fee_abs_resellers = forms.DecimalField(
         label=_('Fixed fee per order'),
