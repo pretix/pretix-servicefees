@@ -31,7 +31,7 @@ def navbar_settings(sender, request, **kwargs):
     }]
 
 
-def get_fees(event, total, invoice_address, mod='', request=None, positions=[], gift_cards=None):
+def get_fees(event, total, invoice_address, mod='', request=None, positions=[], gift_cards=None, payment_requests=None):
     if request is not None and not positions:
         positions = get_cart(request)
 
@@ -64,18 +64,25 @@ def get_fees(event, total, invoice_address, mod='', request=None, positions=[], 
     fee_percent = Decimal("0") if fee_percent is None else fee_percent
 
     if event.settings.get('service_fee_skip_if_gift_card', as_type=bool):
-        gift_cards = gift_cards or []
-        if request:
-            cs = cart_session(request)
-            if cs.get('gift_cards'):
-                gift_cards = event.organizer.accepted_gift_cards.filter(pk__in=cs.get('gift_cards'), currency=event.currency)
-        summed = 0
-        for gc in gift_cards:
-            fval = Decimal(gc.value)  # TODO: don't require an extra query
-            fval = min(fval, total - summed)
-            if fval > 0:
-                total -= fval
-                summed += fval
+        if payment_requests is not None:
+            for p in payment_requests:
+                if p['provider'] == 'giftcard':
+                    total = max(0, total - Decimal(p['max_value'] or '0'))
+
+        else:
+            # pretix pre 4.15
+            gift_cards = gift_cards or []
+            if request:
+                cs = cart_session(request)
+                if cs.get('gift_cards'):
+                    gift_cards = event.organizer.accepted_gift_cards.filter(pk__in=cs.get('gift_cards'), currency=event.currency)
+            summed = 0
+            for gc in gift_cards:
+                fval = Decimal(gc.value)  # TODO: don't require an extra query
+                fval = min(fval, total - summed)
+                if fval > 0:
+                    total -= fval
+                    summed += fval
 
     if (fee_per_ticket or fee_abs or fee_percent) and total != Decimal('0.00'):
         tax_rule_zero = TaxRule.zero()
@@ -146,7 +153,7 @@ def cart_fee(sender: Event, request: HttpRequest, invoice_address, total, **kwar
             pass
         else:
             mod = '_resellers'
-    return get_fees(sender, total, invoice_address, mod, request)
+    return get_fees(sender, total, invoice_address, mod, request, payment_requests=kwargs.get('payment_requests'))
 
 
 @receiver(order_fee_calculation, dispatch_uid="service_fee_calc_order")
@@ -164,7 +171,8 @@ def order_fee(sender: Event, positions, invoice_address, total, meta_info, gift_
             if config.skip_default_service_fees:
                 return []
 
-    return get_fees(sender, total, invoice_address, mod, positions=positions, gift_cards=gift_cards)
+    return get_fees(sender, total, invoice_address, mod, positions=positions, gift_cards=gift_cards,
+                    payment_requests=kwargs.get('payment_requests'))
 
 
 @receiver(front_page_top, dispatch_uid="service_fee_front_page_top")
