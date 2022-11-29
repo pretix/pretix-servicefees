@@ -12,7 +12,7 @@ class PluginApp(AppConfig):
         category = 'FEATURE'
         description = gettext_lazy('This plugin allows to charge a service fee on all non-free orders.')
         visible = True
-        version = '1.9.0'
+        version = '1.10.0'
 
     def ready(self):
         from . import signals  # NOQA
