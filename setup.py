@@ -3,6 +3,7 @@ from distutils.command.build import build
 
 from django.core import management
 from setuptools import setup, find_packages
+from pretix_servicefees import __version__
 
 
 try:
@@ -25,7 +26,7 @@ cmdclass = {
 
 setup(
     name='pretix-servicefees',
-    version='1.10.0',
+    version=__version__,
     description='Allows you to impose a service fee on all non-free orders.',
     long_description=long_description,
     url='https://github.com/pretix/pretix-servicefees',
