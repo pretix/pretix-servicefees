@@ -8,26 +8,26 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-31 21:19+0200\n"
-"PO-Revision-Date: 2018-03-06 15:29+0000\n"
+"PO-Revision-Date: 2024-01-19 17:06+0000\n"
 "Last-Translator: Raphael Michel <michel@rami.io>\n"
-"Language-Team: French <https://translate.pretix.eu/projects/pretix/pretix-"
-"plugin-service-fees/fr/>\n"
+"Language-Team: French <https://translate.pretix.eu/projects/pretix/"
+"pretix-plugin-service-fees/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.19.1\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: pretix_servicefees/__init__.py:10
-#, fuzzy
-#| msgid "Service Fee"
 msgid "Service Fees"
 msgstr "Frais de service"
 
 #: pretix_servicefees/__init__.py:13
 msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
+"Ce plugin permet de facturer des frais de service sur toutes les commandes "
+"non libres."
 
 #: pretix_servicefees/signals.py:23
 msgid "Service Fee"
@@ -35,19 +35,19 @@ msgstr "Frais de service"
 
 #: pretix_servicefees/signals.py:136
 msgid "per ticket"
-msgstr ""
+msgstr "par billet"
 
 #: pretix_servicefees/signals.py:140 pretix_servicefees/signals.py:144
 msgid "per order"
-msgstr ""
+msgstr "par commande"
 
 #: pretix_servicefees/signals.py:147
 msgid "A service fee of {} will be added on top of each order."
-msgstr ""
+msgstr "Des frais de service de {} seront ajoutés en plus de chaque commande."
 
 #: pretix_servicefees/signals.py:148
 msgid "plus"
-msgstr ""
+msgstr "plus"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
@@ -55,10 +55,8 @@ msgid "Service fees"
 msgstr "Frais de service"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:20
-#, fuzzy
-#| msgid "Service fees"
 msgid "Service fees with resellers"
-msgstr "Frais de service"
+msgstr "Frais de service avec les revendeurs"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:22
 msgid ""
@@ -66,18 +64,21 @@ msgid ""
 "do not want to charge any fees through this sales channel, set them to zero "
 "explicity."
 msgstr ""
+"Si vous gardez les valeurs vides, nous reviendrons aux valeurs ci-dessus. Si "
+"vous ne souhaitez pas facturer de frais via ce canal de vente, réglez-les "
+"explicitement sur zéro."
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:30
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:51
 msgid "Fixed fee per order"
-msgstr ""
+msgstr "Frais fixes par commande"
 
 #: pretix_servicefees/views.py:17 pretix_servicefees/views.py:55
 msgid "Percentual fee per order"
-msgstr ""
+msgstr "Frais au pourcentage par commande"
 
 #: pretix_servicefees/views.py:18 pretix_servicefees/views.py:56
 msgid ""
@@ -85,20 +86,27 @@ msgid ""
 "be calculated on the summed price of sold tickets, not on other fees like e."
 "g. shipping fees, if there are any."
 msgstr ""
+"Pourcentage du total de la commande. Notez que ce pourcentage ne sera "
+"actuellement calculé que sur le prix total des billets vendus, et non sur d’"
+"autres frais tels que les frais d’expédition, s’il y en a."
 
 #: pretix_servicefees/views.py:24 pretix_servicefees/views.py:62
 msgid "Fixed fee per ticket"
-msgstr ""
+msgstr "Frais fixes par billet"
 
 #: pretix_servicefees/views.py:25 pretix_servicefees/views.py:64
 msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
 msgstr ""
+"Ces frais seront ajoutés pour chaque billet vendu, à l’exception des "
+"articles gratuits et des addons."
 
 #: pretix_servicefees/views.py:29
 msgid "Do not charge service fee on tickets paid with gift cards"
 msgstr ""
+"Ne facturez pas de frais de service sur les billets payés avec des cartes-"
+"cadeaux"
 
 #: pretix_servicefees/views.py:30
 msgid ""
@@ -108,24 +116,37 @@ msgid ""
 "This only works if the gift card is redeemd when the order is submitted, not "
 "if it's used to pay an unpaid order later."
 msgstr ""
+"Si une carte-cadeau est utilisée pour le paiement, les frais centuels seront "
+"appliqués sur la valeur des billets moins la valeur des cartes-cadeaux. Tous "
+"les frais fixes seront supprimés si les billets peuvent être payés "
+"entièrement avec des cartes-cadeaux. Cela ne fonctionne que si la carte-"
+"cadeau est utilisée lors de la soumission de la commande, et non si elle est "
+"utilisée pour payer une commande impayée plus tard."
 
 #: pretix_servicefees/views.py:37
 msgid "Do not charge per-ticket service fee on add-on products"
 msgstr ""
+"Ne facturez pas de frais de service par billet sur les produits "
+"complémentaires"
 
 #: pretix_servicefees/views.py:41
 msgid "Do not charge per-ticket service fee on non-admission products"
 msgstr ""
+"Ne facturez pas de frais de service par billet sur les produits autres que "
+"l’admission"
 
 #: pretix_servicefees/views.py:45
 msgid "Do not charge per-ticket service fee on free products"
 msgstr ""
+"Ne facturez pas de frais de service par billet sur les produits gratuits"
 
 #: pretix_servicefees/views.py:46
 msgid ""
 "Note that regardless of this setting, a per-ticket fee will not be charged "
 "if the entire order is free."
 msgstr ""
+"Notez que quel que soit ce paramètre, des frais par billet ne seront pas "
+"facturés si la totalité de la commande est gratuite."
 
 #~ msgid "pretix Service Fees"
 #~ msgstr "pretix Frais de service"
