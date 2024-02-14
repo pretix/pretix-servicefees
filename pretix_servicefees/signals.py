@@ -3,9 +3,9 @@ from decimal import Decimal
 from django.dispatch import receiver
 from django.http import HttpRequest
 from django.urls import resolve, reverse
-from django.utils.translation import get_language, gettext, gettext_lazy as _
+from django.utils.translation import gettext, gettext_lazy as _
 from pretix.base.decimal import round_decimal
-from pretix.base.models import CartPosition, Event, Order, TaxRule
+from pretix.base.models import CartPosition, Event, TaxRule
 from pretix.base.models.orders import OrderFee
 from pretix.base.settings import settings_hierarkey
 from pretix.base.signals import order_fee_calculation
@@ -191,7 +191,7 @@ def front_page_top_recv(sender: Event, **kwargs):
         fees = fees + ['{} % {}'.format(fee_percent, gettext('per order'))]
 
     if fee_per_ticket or fee_abs or fee_percent:
-        return '<p>%s</p>' % gettext('A service fee of {} will be added on top of each order.').format(
+        return '<p>%s</p>' % gettext('A service fee of {} will be added to the order total.').format(
             ' {} '.format(gettext('plus')).join(fees)
         )
 
