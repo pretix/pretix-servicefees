@@ -84,6 +84,15 @@ def get_fees(event, total, invoice_address, mod='', request=None, positions=[], 
                     total -= fval
                     summed += fval
 
+    # This hack allows any payment provider to declare a setting service_fee_skip_if_{pprovname} in order to implement
+    # the skipping of service fees when they are paid in their entirety through said payment provider/method.
+    # It is notably used by the KulturPass, which is for all intents and purposes a giftcard but handled like a regular
+    # payment provider.
+    if payment_requests is not None:
+        for p in payment_requests:
+            if event.settings.get(f'service_fee_skip_if_{p["provider"]}', default=False, as_type=bool):
+                total = max(0, total - Decimal(p['max_value'] or '0'))
+
     if (fee_per_ticket or fee_abs or fee_percent) and total != Decimal('0.00'):
         tax_rule_zero = TaxRule.zero()
         fee = round_decimal(fee_abs + total * (fee_percent / 100) + len(positions) * fee_per_ticket, event.currency)
