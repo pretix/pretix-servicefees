@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2022-03-31 19:40+0000\n"
-"Last-Translator: Raphael Michel <michel@rami.io>\n"
+"PO-Revision-Date: 2024-02-15 13:58+0000\n"
+"Last-Translator: Martin Gross <gross@rami.io>\n"
 "Language-Team: German (informal) <https://translate.pretix.eu/projects/"
 "pretix/pretix-plugin-service-fees/de_Informal/>\n"
 "Language: de_Informal\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
@@ -21,7 +21,7 @@ msgstr "Servicegebühren"
 #: pretix_servicefees/apps.py:14
 msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
-"Diese Erweiterung erlaubt dir, für alle Bestellungen eine Servicegebühr  zu "
+"Diese Erweiterung erlaubt dir, für alle Bestellungen eine Servicegebühr zu "
 "verlangen."
 
 #: pretix_servicefees/signals.py:25
@@ -37,8 +37,6 @@ msgid "per order"
 msgstr "pro Bestellung"
 
 #: pretix_servicefees/signals.py:194
-#, fuzzy
-#| msgid "A service fee of {} will be added on top of each order."
 msgid "A service fee of {} will be added to the order total."
 msgstr "Alle Preise zzgl. einer Servicegebühr von {}."
 

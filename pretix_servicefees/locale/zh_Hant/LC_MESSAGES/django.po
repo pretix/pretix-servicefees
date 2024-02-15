@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2023-05-18 09:00+0000\n"
-"Last-Translator: Yucheng Lin <yuchenglinedu@gmail.com>\n"
+"PO-Revision-Date: 2024-02-15 13:58+0000\n"
+"Last-Translator: Martin Gross <gross@rami.io>\n"
 "Language-Team: Chinese (Traditional) <https://translate.pretix.eu/projects/"
 "pretix/pretix-plugin-service-fees/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
@@ -40,8 +40,6 @@ msgid "per order"
 msgstr "每訂單"
 
 #: pretix_servicefees/signals.py:194
-#, fuzzy
-#| msgid "A service fee of {} will be added on top of each order."
 msgid "A service fee of {} will be added to the order total."
 msgstr "每個訂單的將加上添加{}的服務費。"
 
