@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2018-07-18 10:57+0000\n"
-"Last-Translator: Yunus Fırat Pişkin <firat.piskin@idvlabs.com>\n"
-"Language-Team: Turkish <https://translate.pretix.eu/projects/pretix/pretix-"
-"plugin-service-fees/tr/>\n"
+"PO-Revision-Date: 2024-02-15 13:58+0000\n"
+"Last-Translator: Martin Gross <gross@rami.io>\n"
+"Language-Team: Turkish <https://translate.pretix.eu/projects/pretix/"
+"pretix-plugin-service-fees/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: pretix_servicefees/apps.py:11
 #, fuzzy
@@ -44,8 +44,6 @@ msgid "per order"
 msgstr ""
 
 #: pretix_servicefees/signals.py:194
-#, fuzzy
-#| msgid "A service fee of {} will be added on top of each order."
 msgid "A service fee of {} will be added to the order total."
 msgstr "Her siparişin üstüne {} bir hizmet ücreti eklenecektir."
 
