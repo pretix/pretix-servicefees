@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2024-01-19 17:06+0000\n"
-"Last-Translator: Raphael Michel <michel@rami.io>\n"
-"Language-Team: French <https://translate.pretix.eu/projects/pretix/pretix-"
-"plugin-service-fees/fr/>\n"
+"PO-Revision-Date: 2024-02-15 13:58+0000\n"
+"Last-Translator: Martin Gross <gross@rami.io>\n"
+"Language-Team: French <https://translate.pretix.eu/projects/pretix/"
+"pretix-plugin-service-fees/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,8 +42,6 @@ msgid "per order"
 msgstr "par commande"
 
 #: pretix_servicefees/signals.py:194
-#, fuzzy
-#| msgid "A service fee of {} will be added on top of each order."
 msgid "A service fee of {} will be added to the order total."
 msgstr "Des frais de service de {} seront ajoutés en plus de chaque commande."
 
