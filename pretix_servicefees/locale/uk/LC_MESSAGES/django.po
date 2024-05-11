@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2024-05-01 02:00+0000\n"
+"PO-Revision-Date: 2024-05-12 06:00+0000\n"
 "Last-Translator: Serhii Horichenko <m@sgg.im>\n"
 "Language-Team: Ukrainian <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/uk/>\n"
@@ -22,40 +22,42 @@ msgstr ""
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
-msgstr ""
+msgstr "Сервісні збори"
 
 #: pretix_servicefees/apps.py:14
 msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
+"Цей плагін дозволяє стягувати комісію за обслуговування з усіх платних "
+"замовлень."
 
 #: pretix_servicefees/signals.py:25
 msgid "Service Fee"
-msgstr ""
+msgstr "Сервісний збір"
 
 #: pretix_servicefees/signals.py:183
 msgid "per ticket"
-msgstr ""
+msgstr "за квиток"
 
 #: pretix_servicefees/signals.py:187 pretix_servicefees/signals.py:191
 msgid "per order"
-msgstr ""
+msgstr "за замовлення"
 
 #: pretix_servicefees/signals.py:194
 msgid "A service fee of {} will be added to the order total."
-msgstr ""
+msgstr "Сервісний збір за {} буде доданий до кожного замовлення."
 
 #: pretix_servicefees/signals.py:195
 msgid "plus"
-msgstr ""
+msgstr "плюс"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
 msgid "Service fees"
-msgstr ""
+msgstr "Сервісні збори"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:21
 msgid "Service fees with resellers"
-msgstr ""
+msgstr "Сервісні збори для торговельних посередників"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:23
 msgid ""
@@ -63,6 +65,9 @@ msgid ""
 "do not want to charge any fees through this sales channel, set them to zero "
 "explicity."
 msgstr ""
+"Якщо Ви залишите значення незаповненим, будуть використані значення, "
+"наведені вище. Якщо Ви не хочете стягувати комісію через цей канал продажів, "
+"встановіть для них нульове значення."
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:31
 msgid "Save"
@@ -70,11 +75,11 @@ msgstr "Зберегти"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:56
 msgid "Fixed fee per order"
-msgstr ""
+msgstr "Фіксована комісія за замовлення"
 
 #: pretix_servicefees/views.py:17 pretix_servicefees/views.py:60
 msgid "Percentual fee per order"
-msgstr ""
+msgstr "Відсоткова комісія за замовлення"
 
 #: pretix_servicefees/views.py:18 pretix_servicefees/views.py:61
 msgid ""
@@ -82,20 +87,25 @@ msgid ""
 "be calculated on the summed price of sold tickets, not on other fees like e."
 "g. shipping fees, if there are any."
 msgstr ""
+"Відсоток від загальної суми замовлення. Зверніть увагу, що ця сума наразі "
+"розраховуватиметься лише на основі сумарної ціни проданих квитків без "
+"урахування інших комісій, таких як вартість доставки (якщо це налаштовано)."
 
 #: pretix_servicefees/views.py:24 pretix_servicefees/views.py:67
 msgid "Fixed fee per ticket"
-msgstr ""
+msgstr "Фіксована комісія за квиток"
 
 #: pretix_servicefees/views.py:25 pretix_servicefees/views.py:69
 msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
 msgstr ""
+"Цей збір стягується за кожен проданий квиток, окрім безплатних квитків або "
+"додаткових продуктів."
 
 #: pretix_servicefees/views.py:29
 msgid "Do not charge service fee on tickets paid with gift cards"
-msgstr ""
+msgstr "Не стягувати плату за обслуговування за квитки, оплачені ваучерами"
 
 #: pretix_servicefees/views.py:30
 msgid ""
@@ -105,33 +115,45 @@ msgid ""
 "This only works if the gift card is redeemd when the order is submitted, not "
 "if it's used to pay an unpaid order later."
 msgstr ""
+"Якщо для оплати використовується подарункова картка, відсоткова комісія буде "
+"застосована до вартості квитків з вирахуванням вартості подарункових карток. "
+"Якщо квитки можна повністю оплатити подарунковими картками усі фіксовані "
+"комісії будуть скасовані. Це працює лише в тому випадку, якщо ваучер "
+"використовується безпосередньо під час замовлення."
 
 #: pretix_servicefees/views.py:37
 msgid "Do not charge per-ticket service fee on add-on products"
-msgstr ""
+msgstr "Не стягувати сервісні збори за квитки для додаткових продуктів"
 
 #: pretix_servicefees/views.py:41
 msgid "Do not charge per-ticket service fee on non-admission products"
-msgstr ""
+msgstr "Стягувати сервісні збори за квитки лише для продуктів доступу"
 
 #: pretix_servicefees/views.py:45
 msgid "Do not charge per-ticket service fee on free products"
-msgstr ""
+msgstr "Не стягувати сервісні збори за квитки для безплатних продуктів"
 
 #: pretix_servicefees/views.py:46
 msgid ""
 "Note that regardless of this setting, a per-ticket fee will not be charged "
 "if the entire order is free."
 msgstr ""
+"Зверніть увагу, що незалежно від цього налаштування сервісний збір за квиток "
+"не стягуватиметься, якщо все замовлення безплатне."
 
 #: pretix_servicefees/views.py:50
 msgid ""
 "Split taxes proportionate to the tax rates and net values of the ordered "
 "products."
 msgstr ""
+"Розділити податки пропорційно до податкових ставок та чистій вартості "
+"замовлених продуктів."
 
 #: pretix_servicefees/views.py:51
 msgid ""
 "If not split based on ordered products, the tax rate falls back to the "
 "event’s base tax rate or no tax, if none is given."
 msgstr ""
+"Якщо не розподіляти на основі замовлених продуктів, ставка податку "
+"повертається до базової ставки податку за подією або до неоподаткованої, "
+"якщо такої не вказано."
