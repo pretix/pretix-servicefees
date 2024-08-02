@@ -170,6 +170,7 @@ def get_fees(
                     internal_type="",
                     value=price,
                     tax_rate=tax.rate,
+                    tax_code=tax.code,
                     tax_value=tax.tax,
                     tax_rule=tax_rule,
                 )
