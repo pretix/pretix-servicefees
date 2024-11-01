@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2024-02-15 13:58+0000\n"
-"Last-Translator: Martin Gross <gross@rami.io>\n"
+"PO-Revision-Date: 2024-11-02 01:00+0000\n"
+"Last-Translator: CVZ-es <damien.bremont@casadevelazquez.org>\n"
 "Language-Team: Spanish <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/es/>\n"
 "Language: es\n"
@@ -17,13 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3.1\n"
+"X-Generator: Weblate 5.8.1\n"
 
 #: pretix_servicefees/apps.py:11
-#, fuzzy
-#| msgid "Service Fee"
 msgid "Service Fees"
-msgstr "Tasa de servicio"
+msgstr "Tasas de servicio"
 
 #: pretix_servicefees/apps.py:14
 msgid "This plugin allows to charge a service fee on all non-free orders."
@@ -107,6 +105,7 @@ msgstr ""
 #: pretix_servicefees/views.py:29
 msgid "Do not charge service fee on tickets paid with gift cards"
 msgstr ""
+"No cobrar comisión de servicio en las entradas pagadas con tarjetas regalo"
 
 #: pretix_servicefees/views.py:30
 msgid ""
@@ -116,40 +115,49 @@ msgid ""
 "This only works if the gift card is redeemd when the order is submitted, not "
 "if it's used to pay an unpaid order later."
 msgstr ""
+"Si se utiliza una tarjeta regalo para el pago, las tasas porcentuales se "
+"aplicarán sobre el valor de las entradas menos el valor de las tarjetas "
+"regalo. Todas las tasas fijas se suprimirán si las entradas pueden pagarse "
+"íntegramente con tarjetas regalo. Esto sólo funciona si la tarjeta regalo se "
+"canjea al enviar el pedido, no si se utiliza para pagar un pedido impagado "
+"más tarde."
 
 #: pretix_servicefees/views.py:37
 msgid "Do not charge per-ticket service fee on add-on products"
-msgstr ""
+msgstr "No cobrar comisión de servicio por entrada en los productos adicionales"
 
 #: pretix_servicefees/views.py:41
 msgid "Do not charge per-ticket service fee on non-admission products"
-msgstr ""
+msgstr "No cobrar comisión de servicio por entrada en productos no admitidos"
 
 #: pretix_servicefees/views.py:45
-#, fuzzy
-#| msgid "This plugin allows to charge a service fee on all non-free orders."
 msgid "Do not charge per-ticket service fee on free products"
-msgstr ""
-"Este plugin permite cobrar una tasa de servicio en todos los pedidos no "
-"gratuitos."
+msgstr "No cobrar comisión de servicio por billete en productos gratuitos"
 
 #: pretix_servicefees/views.py:46
 msgid ""
 "Note that regardless of this setting, a per-ticket fee will not be charged "
 "if the entire order is free."
 msgstr ""
+"Tenga en cuenta que, independientemente de esta configuración, no se cobrará "
+"una tarifa por entrada si todo el pedido es gratuito."
 
 #: pretix_servicefees/views.py:50
 msgid ""
 "Split taxes proportionate to the tax rates and net values of the ordered "
 "products."
 msgstr ""
+"Repartir los impuestos proporcionalmente a los tipos impositivos y a los "
+"valores netos de los productos pedidos."
 
 #: pretix_servicefees/views.py:51
 msgid ""
 "If not split based on ordered products, the tax rate falls back to the "
 "event’s base tax rate or no tax, if none is given."
 msgstr ""
+"Si no se divide en función de los productos pedidos, el tipo impositivo se "
+"reduce al tipo impositivo base del evento o a ningún impuesto, si no se "
+"indica ninguno."
 
 #~ msgid "pretix Service Fees"
 #~ msgstr "Tasas de servicio de pretix"
