@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2024-11-02 01:00+0000\n"
+"PO-Revision-Date: 2024-11-08 00:00+0000\n"
 "Last-Translator: CVZ-es <damien.bremont@casadevelazquez.org>\n"
 "Language-Team: Spanish <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/es/>\n"
@@ -52,7 +52,7 @@ msgstr "más"
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
 msgid "Service fees"
-msgstr "Tasas de servicio"
+msgstr "Comisiones de servicio"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:21
 msgid "Service fees with resellers"
@@ -74,11 +74,11 @@ msgstr "Guardar"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:56
 msgid "Fixed fee per order"
-msgstr "Tasa fija por pedido"
+msgstr "Comisión fija por pedido"
 
 #: pretix_servicefees/views.py:17 pretix_servicefees/views.py:60
 msgid "Percentual fee per order"
-msgstr "Tasa porcentual por pedido"
+msgstr "Comisión porcentual por pedido"
 
 #: pretix_servicefees/views.py:18 pretix_servicefees/views.py:61
 msgid ""
@@ -86,13 +86,13 @@ msgid ""
 "be calculated on the summed price of sold tickets, not on other fees like e."
 "g. shipping fees, if there are any."
 msgstr ""
-"Porcentaje del pedido total. Este porcentaje se calculará únicamente sobre "
-"el precio total de entradas vendidas, no de otras tasas como p.ej. costes de "
-"envío, de haberlos."
+"Porcentaje del total del pedido. Tenga en cuenta que este porcentaje solo se "
+"calculará sobre el precio total de las entradas vendidas, no sobre otros "
+"gastos como, por ejemplo, los gastos de envío, si los hubiera."
 
 #: pretix_servicefees/views.py:24 pretix_servicefees/views.py:67
 msgid "Fixed fee per ticket"
-msgstr "Tasa fija por entrada"
+msgstr "Comisión fija por entrada"
 
 #: pretix_servicefees/views.py:25 pretix_servicefees/views.py:69
 msgid ""
