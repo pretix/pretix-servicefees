@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2024-11-14 04:00+0000\n"
+"PO-Revision-Date: 2024-11-15 20:00+0000\n"
 "Last-Translator: CVZ-es <damien.bremont@casadevelazquez.org>\n"
 "Language-Team: French <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/fr/>\n"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:31
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:56
 msgid "Fixed fee per order"
@@ -126,7 +126,7 @@ msgstr ""
 #: pretix_servicefees/views.py:37
 msgid "Do not charge per-ticket service fee on add-on products"
 msgstr ""
-"Ne facturez pas de frais de service par billet sur les produits "
+"Ne pas facturer de frais de service par billet sur les produits "
 "complémentaires"
 
 #: pretix_servicefees/views.py:41
