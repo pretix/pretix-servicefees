@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2024-11-15 20:00+0000\n"
+"PO-Revision-Date: 2024-11-16 07:00+0000\n"
 "Last-Translator: CVZ-es <damien.bremont@casadevelazquez.org>\n"
 "Language-Team: French <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/fr/>\n"
@@ -78,7 +78,7 @@ msgstr "Frais fixes par commande"
 
 #: pretix_servicefees/views.py:17 pretix_servicefees/views.py:60
 msgid "Percentual fee per order"
-msgstr "Frais au pourcentage par commande"
+msgstr "Taxe variable par commande"
 
 #: pretix_servicefees/views.py:18 pretix_servicefees/views.py:61
 msgid ""
@@ -86,9 +86,9 @@ msgid ""
 "be calculated on the summed price of sold tickets, not on other fees like e."
 "g. shipping fees, if there are any."
 msgstr ""
-"Pourcentage du total de la commande. Notez que ce pourcentage ne sera "
+"Pourcentage du total de la commande. Notez que ce pourcentage n'est "
 "actuellement calculé que sur le prix total des billets vendus, et non sur "
-"d’autres frais tels que les frais d’expédition, s’il y en a."
+"d'autres frais tels que les frais d'expédition, s'il y en a."
 
 #: pretix_servicefees/views.py:24 pretix_servicefees/views.py:67
 msgid "Fixed fee per ticket"
@@ -99,8 +99,8 @@ msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
 msgstr ""
-"Ces frais seront ajoutés pour chaque billet vendu, à l’exception des "
-"articles gratuits et des addons."
+"Ces frais seront ajoutés pour chaque billet vendu, à l'exception des "
+"articles gratuits et des add-ons."
 
 #: pretix_servicefees/views.py:29
 msgid "Do not charge service fee on tickets paid with gift cards"
