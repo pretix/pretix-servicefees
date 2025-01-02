@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2024-11-08 00:00+0000\n"
-"Last-Translator: CVZ-es <damien.bremont@casadevelazquez.org>\n"
+"PO-Revision-Date: 2025-01-03 05:00+0000\n"
+"Last-Translator: Hector <hector@demandaeventos.es>\n"
 "Language-Team: Spanish <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/es/>\n"
 "Language: es\n"
@@ -17,21 +17,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.1\n"
+"X-Generator: Weblate 5.9.2\n"
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
-msgstr "Tasas de servicio"
+msgstr "Gastos de gestión"
 
 #: pretix_servicefees/apps.py:14
 msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
-"Este plugin permite cobrar una tasa de servicio en todos los pedidos no "
+"Este plugin permite cobrar unos gastos de gestión en todos los pedidos no "
 "gratuitos."
 
 #: pretix_servicefees/signals.py:25
 msgid "Service Fee"
-msgstr "Tasa de servicio"
+msgstr "Gastos de gestión"
 
 #: pretix_servicefees/signals.py:183
 msgid "per ticket"
@@ -43,7 +43,7 @@ msgstr "por pedido"
 
 #: pretix_servicefees/signals.py:194
 msgid "A service fee of {} will be added to the order total."
-msgstr "Se sumará una tasa de servicio de {} a cada pedido."
+msgstr "Se sumará un gasto de gestión de {} a cada pedido."
 
 #: pretix_servicefees/signals.py:195
 msgid "plus"
@@ -56,7 +56,7 @@ msgstr "Comisiones de servicio"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:21
 msgid "Service fees with resellers"
-msgstr "Tasas de servicio para reventa"
+msgstr "Gastos de gestión para reventa"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:23
 msgid ""
