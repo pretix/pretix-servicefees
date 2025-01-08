@@ -1,5 +1,6 @@
 from collections import defaultdict
 from decimal import Decimal
+from django import forms
 from django.dispatch import receiver
 from django.http import HttpRequest
 from django.urls import resolve, reverse
@@ -8,14 +9,22 @@ from pretix.base.decimal import round_decimal
 from pretix.base.models import CartPosition, Event, TaxRule
 from pretix.base.models.orders import OrderFee
 from pretix.base.settings import settings_hierarkey
-from pretix.base.signals import order_fee_calculation
+from pretix.base.signals import (
+    event_copy_data,
+    item_copy_data,
+    order_fee_calculation,
+)
 from pretix.base.templatetags.money import money_filter
-from pretix.control.signals import nav_event_settings
+from pretix.control.signals import item_forms, nav_event_settings
 from pretix.presale.signals import (
-    fee_calculation_for_cart, front_page_top, order_meta_from_request,
+    fee_calculation_for_cart,
+    front_page_top,
+    order_meta_from_request,
 )
 from pretix.presale.views import get_cart
 from pretix.presale.views.cart import cart_session
+
+from .models import ItemServicefeesSettings
 
 
 @receiver(nav_event_settings, dispatch_uid="service_fee_nav_settings")
@@ -57,6 +66,14 @@ def get_fees(
     skip_addons = event.settings.get("service_fee_skip_addons", as_type=bool)
     if skip_addons:
         positions = [pos for pos in positions if not pos.addon_to_id]
+
+    excluded_products = set(
+        ItemServicefeesSettings.objects.filter(
+            item__event=event,
+            exclude=True,
+        ).values_list("item_id", flat=True)
+    )
+    positions = [pos for pos in positions if pos.item_id not in excluded_products]
 
     skip_non_admission = event.settings.get(
         "service_fee_skip_non_admission", as_type=bool
@@ -185,7 +202,8 @@ def cart_fee(sender: Event, request: HttpRequest, invoice_address, total, **kwar
     mod = ""
     try:
         from pretix_resellers.utils import (
-            ResellerException, get_reseller_and_user,
+            ResellerException,
+            get_reseller_and_user,
         )
     except ImportError:
         pass
@@ -269,7 +287,8 @@ def order_meta_signal(sender: Event, request: HttpRequest, **kwargs):
     meta = {}
     try:
         from pretix_resellers.utils import (
-            ResellerException, get_reseller_and_user,
+            ResellerException,
+            get_reseller_and_user,
         )
     except ImportError:
         pass
@@ -280,6 +299,62 @@ def order_meta_signal(sender: Event, request: HttpRequest, **kwargs):
         except ResellerException:
             pass
     return meta
+
+
+class ItemServicefeesSettingsForm(forms.ModelForm):
+    class Meta:
+        model = ItemServicefeesSettings
+        fields = ["exclude"]
+        exclude = []
+
+    def __init__(self, *args, **kwargs):
+        self.event = kwargs.pop("event")
+        super().__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        if not self.cleaned_data.get("exclude"):
+            if self.instance.pk:
+                self.instance.delete()
+            else:
+                return
+        else:
+            return super().save(commit=commit)
+
+
+@receiver(item_forms, dispatch_uid="servicefees_item_forms")
+def control_item_forms(sender, request, item, **kwargs):
+    try:
+        inst = ItemServicefeesSettings.objects.get(item=item)
+    except ItemServicefeesSettings.DoesNotExist:
+        inst = ItemServicefeesSettings(item=item)
+    return ItemServicefeesSettingsForm(
+        instance=inst,
+        event=sender,
+        data=(request.POST if request.method == "POST" else None),
+        prefix="servicefees",
+    )
+
+
+@receiver(item_copy_data, dispatch_uid="servicefees_item_copy")
+def copy_item(sender, source, target, **kwargs):
+    try:
+        inst = ItemServicefeesSettings.objects.get(item=source)
+        inst = copy.copy(inst)
+        inst.pk = None
+        inst.item = target
+        inst.save()
+    except ItemServicefeesSettings.DoesNotExist:
+        pass
+
+
+@receiver(signal=event_copy_data, dispatch_uid="servicefees_copy_data")
+def event_copy_data_receiver(sender, other, question_map, item_map, **kwargs):
+    for ip in ItemServicefeesSettings.objects.filter(item__event=other):
+        ip = copy.copy(ip)
+        ip.pk = None
+        ip.event = sender
+        ip.item = item_map[ip.item_id]
+        ip.save()
 
 
 settings_hierarkey.add_default("service_fee_skip_addons", "True", bool)
