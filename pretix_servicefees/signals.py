@@ -141,14 +141,19 @@ def get_fees(
         if split_taxes:
             # split taxes based on products ordered
             d = defaultdict(lambda: Decimal("0.00"))
+            trs = {}
             for p in positions:
                 if isinstance(p, CartPosition):
                     tr = p.item.tax_rule
                 else:
                     tr = p.tax_rule
-                d[tr] += p.price - p.tax_value
+                if not tr:
+                    tr = tax_rule_zero
+                key = (tr.rate, tr.code)
+                d[key] += p.price - p.tax_value
+                trs[key] = tr
 
-            base_values = sorted([tuple(t) for t in d.items()], key=lambda t: t[0].rate)
+            base_values = sorted([(trs[t[0]], t[1]) for t in d.items()], key=lambda t: t[0].rate)
             sum_base = sum(t[1] for t in base_values)
             if sum_base:
                 fee_values = [
