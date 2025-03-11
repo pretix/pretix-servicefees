@@ -153,8 +153,8 @@ def get_fees(
                 d[key] += p.price - p.tax_value
                 trs[key] = tr
 
-            base_values = sorted([(trs[t[0]], t[1]) for t in d.items()], key=lambda t: t[0].rate)
-            sum_base = sum(t[1] for t in base_values)
+            base_values = sorted([(trs[key], value) for key, value in d.items()], key=lambda t: t[0].rate)
+            sum_base = sum(value for rule, value in base_values)
             if sum_base:
                 fee_values = [
                     (t[0], round_decimal(fee * t[1] / sum_base, event.currency))
