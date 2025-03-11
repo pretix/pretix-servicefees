@@ -149,9 +149,9 @@ def get_fees(
                     tr = p.tax_rule
                 if not tr:
                     tr = tax_rule_zero
-                key = (tr.rate, tr.code)
-                d[key] += p.price - p.tax_value
-                trs[key] = tr
+                # use tr.pk as key as tax_rule_zero is not hashable
+                d[tr.pk] += p.price - p.tax_value
+                trs[tr.pk] = tr
 
             base_values = sorted([(trs[key], value) for key, value in d.items()], key=lambda t: t[0].rate)
             sum_base = sum(value for key, value in base_values)
