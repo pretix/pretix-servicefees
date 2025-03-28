@@ -8,6 +8,7 @@ from django.utils.translation import gettext, gettext_lazy as _
 from pretix.base.decimal import round_decimal
 from pretix.base.models import CartPosition, Event, TaxRule
 from pretix.base.models.orders import OrderFee
+from pretix.base.services.tax import split_fee_for_taxes
 from pretix.base.settings import settings_hierarkey
 from pretix.base.signals import (
     event_copy_data,
@@ -139,46 +140,9 @@ def get_fees(
         )
         split_taxes = event.settings.get("service_fee_split_taxes", as_type=bool)
         if split_taxes:
-            # split taxes based on products ordered
-            d = defaultdict(lambda: Decimal("0.00"))
-            trs = {}
-            for p in positions:
-                if isinstance(p, CartPosition):
-                    tr = p.item.tax_rule
-                else:
-                    tr = p.tax_rule
-                if not tr:
-                    tr = tax_rule_zero
-                # use tr.pk as key as tax_rule_zero is not hashable
-                d[tr.pk] += p.price - p.tax_value
-                trs[tr.pk] = tr
-
-            base_values = sorted([(trs[key], value) for key, value in d.items()], key=lambda t: t[0].rate)
-            sum_base = sum(value for key, value in base_values)
-            if sum_base:
-                fee_values = [
-                    (key, round_decimal(fee * value / sum_base, event.currency))
-                    for key, value in base_values
-                ]
-                sum_fee = sum(value for key, value in fee_values)
-
-                # If there are rounding differences, we fix them up, but always leaning to the benefit of the tax
-                # authorities
-                if sum_fee > fee:
-                    fee_values[0] = (
-                        fee_values[0][0],
-                        fee_values[0][1] + (fee - sum_fee),
-                    )
-                elif sum_fee < fee:
-                    fee_values[-1] = (
-                        fee_values[-1][0],
-                        fee_values[-1][1] + (fee - sum_fee),
-                    )
-            else:
-                fee_values = [(event.settings.tax_rate_default or tax_rule_zero, fee)]
-
+            fee_values = split_fee_for_taxes(positions, fee, event)
         else:
-            fee_values = [(event.settings.tax_rate_default or tax_rule_zero, fee)]
+            fee_values = [(event.settings.cached_default_tax_rule or tax_rule_zero, fee)]
 
         fees = []
         for tax_rule, price in fee_values:
