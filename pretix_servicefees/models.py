@@ -8,6 +8,6 @@ class ItemServicefeesSettings(models.Model):
     )
     exclude = models.BooleanField(
         verbose_name=_(
-            "Exclude this product from the calculation of per-ticket service fees"
+            "Exclude this product from the calculation of per-ticket and percentual service fees"
         )
     )

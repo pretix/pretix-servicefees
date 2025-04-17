@@ -73,7 +73,10 @@ def get_fees(
             exclude=True,
         ).values_list("item_id", flat=True)
     )
+    excluded_positions = [pos for pos in positions if pos.item_id in excluded_products]
     positions = [pos for pos in positions if pos.item_id not in excluded_products]
+    excluded_total = sum([p.price for p in excluded_positions], Decimal("0.00"))
+    total = max(0, total - excluded_total)
 
     skip_non_admission = event.settings.get(
         "service_fee_skip_non_admission", as_type=bool
