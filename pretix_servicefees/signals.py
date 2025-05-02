@@ -59,6 +59,17 @@ def get_fees(
     if request is not None and not positions:
         positions = get_cart(request)
 
+    explicitly_excluded_products = set(
+        ItemServicefeesSettings.objects.filter(
+            item__event=event,
+            exclude=True,
+        ).values_list("item_id", flat=True)
+    )
+    explicitly_excluded_positions = [pos for pos in positions if pos.item_id in explicitly_excluded_products]
+    positions = [pos for pos in positions if pos.item_id not in explicitly_excluded_products]
+    explicitly_excluded_total = sum([p.price for p in explicitly_excluded_positions], Decimal("0.00"))
+    total_for_percentages = max(0, total - explicitly_excluded_total)
+
     skip_free = event.settings.get("service_fee_skip_free", as_type=bool)
     if skip_free:
         positions = [pos for pos in positions if pos.price != Decimal("0.00")]
@@ -66,14 +77,6 @@ def get_fees(
     skip_addons = event.settings.get("service_fee_skip_addons", as_type=bool)
     if skip_addons:
         positions = [pos for pos in positions if not pos.addon_to_id]
-
-    excluded_products = set(
-        ItemServicefeesSettings.objects.filter(
-            item__event=event,
-            exclude=True,
-        ).values_list("item_id", flat=True)
-    )
-    positions = [pos for pos in positions if pos.item_id not in excluded_products]
 
     skip_non_admission = event.settings.get(
         "service_fee_skip_non_admission", as_type=bool
@@ -101,7 +104,7 @@ def get_fees(
         if payment_requests is not None:
             for p in payment_requests:
                 if p["provider"] == "giftcard":
-                    total = max(0, total - Decimal(p["max_value"] or "0"))
+                    total_for_percentages = max(0, total_for_percentages - Decimal(p["max_value"] or "0"))
 
         else:
             # pretix pre 4.15
@@ -115,9 +118,9 @@ def get_fees(
             summed = 0
             for gc in gift_cards:
                 fval = Decimal(gc.value)  # TODO: don't require an extra query
-                fval = min(fval, total - summed)
+                fval = min(fval, total_for_percentages - summed)
                 if fval > 0:
-                    total -= fval
+                    total_for_percentages -= fval
                     summed += fval
 
     # This hack allows any payment provider to declare a setting service_fee_skip_if_{pprovname} in order to implement
@@ -129,12 +132,12 @@ def get_fees(
             if event.settings.get(
                 f'service_fee_skip_if_{p["provider"]}', default=False, as_type=bool
             ):
-                total = max(0, total - Decimal(p["max_value"] or "0"))
+                total = max(0, total_for_percentages - Decimal(p["max_value"] or "0"))
 
-    if (fee_per_ticket or fee_abs or fee_percent) and total != Decimal("0.00"):
+    if (fee_per_ticket or fee_abs or fee_percent) and total_for_percentages != Decimal("0.00"):
         tax_rule_zero = TaxRule.zero()
         fee = round_decimal(
-            fee_abs + total * (fee_percent / 100) + len(positions) * fee_per_ticket,
+            fee_abs + total_for_percentages * (fee_percent / 100) + len(positions) * fee_per_ticket,
             event.currency,
         )
         split_taxes = event.settings.get("service_fee_split_taxes", as_type=bool)
