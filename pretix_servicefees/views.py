@@ -57,7 +57,7 @@ class ServiceFeeSettingsForm(SettingsForm):
             "Split taxes proportionate to the tax rates and net values of the ordered products."
         ),
         help_text=_(
-            "If not split based on ordered products, the tax rate falls back to the event’s base tax rate or no tax, if none is given."
+            "If not split based on ordered products, the tax rate falls back to the event’s default tax rate or no tax, if no default tax rate exists."
         ),
         required=False,
     )
