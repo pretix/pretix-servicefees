@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2025-05-08 16:00+0000\n"
-"Last-Translator: CVZ-es <damien.bremont@casadevelazquez.org>\n"
+"PO-Revision-Date: 2025-05-14 07:00+0000\n"
+"Last-Translator: Hector <hector@alpakafest.com>\n"
 "Language-Team: Spanish <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/es/>\n"
 "Language: es\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
-msgstr "Cargos por servicio"
+msgstr "Gastos de gestión"
 
 #: pretix_servicefees/apps.py:14
 msgid "This plugin allows to charge a service fee on all non-free orders."
@@ -31,7 +31,7 @@ msgstr ""
 
 #: pretix_servicefees/signals.py:25
 msgid "Service Fee"
-msgstr "Cargo por servicio"
+msgstr "Gasto de gestión"
 
 #: pretix_servicefees/signals.py:183
 msgid "per ticket"
@@ -43,7 +43,7 @@ msgstr "por pedido"
 
 #: pretix_servicefees/signals.py:194
 msgid "A service fee of {} will be added to the order total."
-msgstr "Se sumará un cargo de servicio de {}."
+msgstr "Se sumará un gasto de gestión de {}."
 
 #: pretix_servicefees/signals.py:195
 msgid "plus"
@@ -52,7 +52,7 @@ msgstr "más"
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
 msgid "Service fees"
-msgstr "Cargos por servicio"
+msgstr "Gastos de gestión"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:21
 msgid "Service fees with resellers"
