@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2025-05-14 07:00+0000\n"
+"PO-Revision-Date: 2025-05-15 20:00+0000\n"
 "Last-Translator: Hector <hector@alpakafest.com>\n"
 "Language-Team: Spanish <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/es/>\n"
@@ -65,8 +65,8 @@ msgid ""
 "explicity."
 msgstr ""
 "Si se dejan valores vacíos, se usarán los valores por defecto de arriba. En "
-"caso de no querer aplicar ninguna tasa a través de este canal de venta, es "
-"conveniente definirlos explícitamente con valor cero."
+"caso de no querer aplicar ningún gasto de gestión a través de este canal de "
+"venta, es conveniente definirlos explícitamente con valor cero."
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:31
 msgid "Save"
@@ -104,8 +104,7 @@ msgstr ""
 
 #: pretix_servicefees/views.py:29
 msgid "Do not charge service fee on tickets paid with gift cards"
-msgstr ""
-"No cobrar comisión de servicio en las entradas pagadas con tarjetas regalo"
+msgstr "No cobrar gastos de gestión en las entradas pagadas con tarjetas regalo"
 
 #: pretix_servicefees/views.py:30
 msgid ""
