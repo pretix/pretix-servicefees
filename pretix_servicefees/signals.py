@@ -1,3 +1,4 @@
+import copy
 from collections import defaultdict
 from decimal import Decimal
 from django import forms
