@@ -142,7 +142,7 @@ def get_fees(
         if split_taxes:
             fee_values = split_fee_for_taxes(positions, fee, event)
         else:
-            fee_values = [(event.settings.cached_default_tax_rule or tax_rule_zero, fee)]
+            fee_values = [(event.cached_default_tax_rule or tax_rule_zero, fee)]
 
         fees = []
         for tax_rule, price in fee_values:
