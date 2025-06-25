@@ -52,14 +52,15 @@ class ServiceFeeSettingsForm(SettingsForm):
         ),
         required=False,
     )
-    service_fee_split_taxes = forms.BooleanField(
-        label=_(
-            "Split taxes proportionate to the tax rates and net values of the ordered products."
+    service_fee_tax_rule = forms.ChoiceField(
+        label=_('Tax handling for service fee'),
+        widget=forms.RadioSelect,
+        choices=(
+            ('none', _('Charge no taxes')),
+            ('split', _('Use same taxes as order positions (split according to net prices)')),
+            ('default', _('Use default tax rate')),
         ),
-        help_text=_(
-            "If not split based on ordered products, the tax rate falls back to the event’s base tax rate or no tax, if none is given."
-        ),
-        required=False,
+        required=False
     )
 
     service_fee_abs_resellers = forms.DecimalField(
