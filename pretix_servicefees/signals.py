@@ -133,16 +133,18 @@ def get_fees(
                 total = max(0, total - Decimal(p["max_value"] or "0"))
 
     if (fee_per_ticket or fee_abs or fee_percent) and total != Decimal("0.00"):
-        tax_rule_zero = TaxRule.zero()
         fee = round_decimal(
             fee_abs + total * (fee_percent / 100) + len(positions) * fee_per_ticket,
             event.currency,
         )
-        split_taxes = event.settings.get("service_fee_split_taxes", as_type=bool)
-        if split_taxes:
+
+        tax_rule_zero = TaxRule.zero()
+        if event.settings.service_fee_tax_rule == "default":
+            fee_values = [(event.cached_default_tax_rule or tax_rule_zero, fee)]
+        elif event.settings.service_fee_tax_rule == "split":
             fee_values = split_fee_for_taxes(positions, fee, event)
         else:
-            fee_values = [(event.cached_default_tax_rule or tax_rule_zero, fee)]
+            fee_values = [(tax_rule_zero, fee)]
 
         fees = []
         for tax_rule, price in fee_values:
@@ -328,3 +330,4 @@ def event_copy_data_receiver(sender, other, question_map, item_map, **kwargs):
 
 settings_hierarkey.add_default("service_fee_skip_addons", "True", bool)
 settings_hierarkey.add_default("service_fee_skip_free", "True", bool)
+settings_hierarkey.add_default('service_fee_tax_rule', 'default', str)
