@@ -36,7 +36,7 @@ def set_default_tax_rate(app, schema_editor):
 class Migration(migrations.Migration):
     dependencies = [
         ("pretix_servicefees", "0001_initial"),
-        ("pretixbase", "0282_taxrule_default_taxrule_one_default_per_event"),
+        ("pretixbase", "0283_taxrule_default_taxrule_backfill"),
     ]
 
     operations = [
