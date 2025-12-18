@@ -8,50 +8,56 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-12-19 04:28+0000\n"
+"Last-Translator: Daniel Branda <daniel.branda.ad@gmail.com>\n"
+"Language-Team: Italian <https://translate.pretix.eu/projects/pretix/pretix-"
+"plugin-service-fees/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15\n"
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
-msgstr ""
+msgstr "Costi di servizio"
 
 #: pretix_servicefees/apps.py:14
 msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
+"Questo plugin consente di addebitare una commissione di servizio su tutti "
+"gli ordini non gratuiti."
 
 #: pretix_servicefees/signals.py:25
 msgid "Service Fee"
-msgstr ""
+msgstr "Commissione di gestione"
 
 #: pretix_servicefees/signals.py:183
 msgid "per ticket"
-msgstr ""
+msgstr "per biglietto"
 
 #: pretix_servicefees/signals.py:187 pretix_servicefees/signals.py:191
 msgid "per order"
-msgstr ""
+msgstr "per ordine"
 
 #: pretix_servicefees/signals.py:194
 msgid "A service fee of {} will be added to the order total."
 msgstr ""
+"Al totale dell'ordine verrà aggiunto una commissione di servizio pari a {}."
 
 #: pretix_servicefees/signals.py:195
 msgid "plus"
-msgstr ""
+msgstr "più"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
 msgid "Service fees"
-msgstr ""
+msgstr "Commissioni di gestione"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:21
 msgid "Service fees with resellers"
-msgstr ""
+msgstr "Commissioni di servizio con i rivenditori"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:23
 msgid ""
@@ -59,10 +65,13 @@ msgid ""
 "do not want to charge any fees through this sales channel, set them to zero "
 "explicity."
 msgstr ""
+"Se lasci i valori vuoti, utilizzeremo i valori sopra indicati. Se non "
+"desideri addebitare alcuna commissione tramite questo canale di vendita, "
+"impostali esplicitamente su zero."
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:31
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:56
 msgid "Fixed fee per order"
