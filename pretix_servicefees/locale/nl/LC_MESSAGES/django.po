@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2024-02-15 13:58+0000\n"
-"Last-Translator: Martin Gross <gross@rami.io>\n"
-"Language-Team: Dutch <https://translate.pretix.eu/projects/pretix/"
-"pretix-plugin-service-fees/nl/>\n"
+"PO-Revision-Date: 2026-01-22 22:28+0000\n"
+"Last-Translator: Ruud Hendrickx <ruud@leckxicon.eu>\n"
+"Language-Team: Dutch <https://translate.pretix.eu/projects/pretix/pretix-"
+"plugin-service-fees/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3.1\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
@@ -100,7 +100,7 @@ msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
 msgstr ""
-"Deze toeslag zal worden toegevoegd voor elk verkochte ticket, behalve voor "
+"Deze toeslag zal worden toegevoegd voor elk verkocht ticket, behalve voor "
 "gratis producten en add-ons."
 
 #: pretix_servicefees/views.py:29
@@ -123,40 +123,43 @@ msgstr ""
 "cadeaubon later wordt gebruikt om een onbetaalde bestelling te betalen."
 
 #: pretix_servicefees/views.py:37
-#, fuzzy
-#| msgid "Do not charge service fee on tickets paid with gift cards"
 msgid "Do not charge per-ticket service fee on add-on products"
-msgstr "Reken geen servicekosten voor tickets betaald met cadeaubonnen"
+msgstr "Breng geen servicekosten per ticket in rekening voor add-on producten"
 
 #: pretix_servicefees/views.py:41
-#, fuzzy
-#| msgid "Do not charge service fee on tickets paid with gift cards"
 msgid "Do not charge per-ticket service fee on non-admission products"
-msgstr "Reken geen servicekosten voor tickets betaald met cadeaubonnen"
+msgstr ""
+"Breng geen servicekosten per ticket in rekening voor producten die geen "
+"toegang verlenen."
 
 #: pretix_servicefees/views.py:45
-#, fuzzy
-#| msgid "Do not charge service fee on tickets paid with gift cards"
 msgid "Do not charge per-ticket service fee on free products"
-msgstr "Reken geen servicekosten voor tickets betaald met cadeaubonnen"
+msgstr "Reken geen servicekosten aan voor gratis tickets"
 
 #: pretix_servicefees/views.py:46
 msgid ""
 "Note that regardless of this setting, a per-ticket fee will not be charged "
 "if the entire order is free."
 msgstr ""
+"Houd er rekening mee dat, ongeacht deze instelling, er geen kosten per "
+"ticket in rekening worden gebracht als de hele bestelling gratis is."
 
 #: pretix_servicefees/views.py:50
 msgid ""
 "Split taxes proportionate to the tax rates and net values of the ordered "
 "products."
 msgstr ""
+"Verdeel de belastingen evenredig aan de belastingtarieven en nettowaarden "
+"van de bestelde producten."
 
 #: pretix_servicefees/views.py:51
 msgid ""
 "If not split based on ordered products, the tax rate falls back to the "
 "event’s base tax rate or no tax, if none is given."
 msgstr ""
+"Als er geen onderscheid wordt gemaakt op basis van bestelde producten, wordt "
+"het belastingtarief teruggebracht naar het basistarief van het evenement of "
+"wordt er geen belasting geheven als er geen tarief is opgegeven."
 
 #~ msgid "pretix Service Fees"
 #~ msgstr "pretix Servicekosten"
