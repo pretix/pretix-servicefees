@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2026-01-29 00:28+0000\n"
+"PO-Revision-Date: 2026-01-31 00:28+0000\n"
 "Last-Translator: Ruud Hendrickx <ruud@leckxicon.eu>\n"
 "Language-Team: Dutch (informal) <https://translate.pretix.eu/projects/pretix/"
 "pretix-plugin-service-fees/nl_Informal/>\n"
@@ -123,17 +123,17 @@ msgstr ""
 
 #: pretix_servicefees/views.py:37
 msgid "Do not charge per-ticket service fee on add-on products"
-msgstr "Breng geen servicekosten per ticket in rekening voor add-on-producten."
+msgstr "Breng geen servicekosten per ticket in rekening voor add-on-producten"
 
 #: pretix_servicefees/views.py:41
 msgid "Do not charge per-ticket service fee on non-admission products"
 msgstr ""
 "Breng geen servicekosten per ticket in rekening voor producten die geen "
-"toegang verlenen."
+"toegang verlenen"
 
 #: pretix_servicefees/views.py:45
 msgid "Do not charge per-ticket service fee on free products"
-msgstr "Breng geen servicekosten per ticket in rekening voor gratis producten."
+msgstr "Breng geen servicekosten per ticket in rekening voor gratis producten"
 
 #: pretix_servicefees/views.py:46
 msgid ""
