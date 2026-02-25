@@ -8,37 +8,42 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-02-26 03:34+0000\n"
+"Last-Translator: David Ibáñez Cerdeira <dibanez@gmail.com>\n"
+"Language-Team: Greek <https://translate.pretix.eu/projects/pretix/pretix-"
+"plugin-service-fees/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.16\n"
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
-msgstr ""
+msgstr "Taxas de servizo"
 
 #: pretix_servicefees/apps.py:14
 msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
+"Este plugin permite cobrar unha taxa de servizo en todos os pedidos que non "
+"sexan gratuítos."
 
 #: pretix_servicefees/signals.py:25
 msgid "Service Fee"
-msgstr ""
+msgstr "Taxas de servizo"
 
 #: pretix_servicefees/signals.py:183
 msgid "per ticket"
-msgstr ""
+msgstr "por billete"
 
 #: pretix_servicefees/signals.py:187 pretix_servicefees/signals.py:191
 msgid "per order"
-msgstr ""
+msgstr "por pedido"
 
 #: pretix_servicefees/signals.py:194
 msgid "A service fee of {} will be added to the order total."
-msgstr ""
+msgstr "Engadiráselle unha taxa de servizo de {} ao total do pedido."
 
 #: pretix_servicefees/signals.py:195
 msgid "plus"
@@ -47,11 +52,11 @@ msgstr ""
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
 msgid "Service fees"
-msgstr ""
+msgstr "Taxas de servizo"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:21
 msgid "Service fees with resellers"
-msgstr ""
+msgstr "Tarifas de servizo con revendedores"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:23
 msgid ""
@@ -62,15 +67,15 @@ msgstr ""
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:31
 msgid "Save"
-msgstr ""
+msgstr "gardar"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:56
 msgid "Fixed fee per order"
-msgstr ""
+msgstr "Tarifa fixa por pedido"
 
 #: pretix_servicefees/views.py:17 pretix_servicefees/views.py:60
 msgid "Percentual fee per order"
-msgstr ""
+msgstr "Porcentaxe por pedido"
 
 #: pretix_servicefees/views.py:18 pretix_servicefees/views.py:61
 msgid ""
