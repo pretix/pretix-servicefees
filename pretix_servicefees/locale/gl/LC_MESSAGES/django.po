@@ -8,51 +8,55 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-02-26 21:34+0000\n"
+"Last-Translator: David Ibáñez Cerdeira <dibanez@gmail.com>\n"
+"Language-Team: Galician <https://translate.pretix.eu/projects/pretix/pretix-"
+"plugin-service-fees/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.16\n"
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
-msgstr ""
+msgstr "Gastos de xestión"
 
 #: pretix_servicefees/apps.py:14
 msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
+"Este complemento permite cobrar uns gastos de xestión en todos os pedidos "
+"non gratuítos."
 
 #: pretix_servicefees/signals.py:25
 msgid "Service Fee"
-msgstr ""
+msgstr "Gastos de xestión"
 
 #: pretix_servicefees/signals.py:183
 msgid "per ticket"
-msgstr ""
+msgstr "por Billete"
 
 #: pretix_servicefees/signals.py:187 pretix_servicefees/signals.py:191
 msgid "per order"
-msgstr ""
+msgstr "por pedido"
 
 #: pretix_servicefees/signals.py:194
 msgid "A service fee of {} will be added to the order total."
-msgstr ""
+msgstr "Engadirase un gasto de xestión de {} ao total do pedido."
 
 #: pretix_servicefees/signals.py:195
 msgid "plus"
-msgstr ""
+msgstr "máis"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
 msgid "Service fees"
-msgstr ""
+msgstr "Gastos de xestión"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:21
 msgid "Service fees with resellers"
-msgstr ""
+msgstr "Gastos de xestión para revenda"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:23
 msgid ""
@@ -60,18 +64,21 @@ msgid ""
 "do not want to charge any fees through this sales channel, set them to zero "
 "explicity."
 msgstr ""
+"Se deixa os valores baleiros, utilizaranse os valores por defecto de arriba. "
+"Se non quere aplicar ningún gasto de xestión a través desta canle de venda,  "
+"defínaos explicitamente con valor cero."
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:31
 msgid "Save"
-msgstr ""
+msgstr "Gardar"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:56
 msgid "Fixed fee per order"
-msgstr ""
+msgstr "Comisión fixa por pedido"
 
 #: pretix_servicefees/views.py:17 pretix_servicefees/views.py:60
 msgid "Percentual fee per order"
-msgstr ""
+msgstr "Comisión porcentual por pedido"
 
 #: pretix_servicefees/views.py:18 pretix_servicefees/views.py:61
 msgid ""
@@ -79,20 +86,25 @@ msgid ""
 "be calculated on the summed price of sold tickets, not on other fees like e."
 "g. shipping fees, if there are any."
 msgstr ""
+"Porcentaxe do total do pedido. Teña en conta que esta porcentaxe só se "
+"calculará sobre o prezo total dos billetes vendidos, non sobre outros gastos "
+"como, por exemplo, os gastos de envío, se os houbese."
 
 #: pretix_servicefees/views.py:24 pretix_servicefees/views.py:67
 msgid "Fixed fee per ticket"
-msgstr ""
+msgstr "Comisión fixa por Billete"
 
 #: pretix_servicefees/views.py:25 pretix_servicefees/views.py:69
 msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
 msgstr ""
+"Esta taxa engadirase a cada Billete vendido, agás para artigos gratuítos e "
+"complementos."
 
 #: pretix_servicefees/views.py:29
 msgid "Do not charge service fee on tickets paid with gift cards"
-msgstr ""
+msgstr "Non cobrar gastos de xestión nos Billetes pagados con tarxetas agasallo"
 
 #: pretix_servicefees/views.py:30
 msgid ""
@@ -102,33 +114,45 @@ msgid ""
 "This only works if the gift card is redeemd when the order is submitted, not "
 "if it's used to pay an unpaid order later."
 msgstr ""
+"Se se utiliza unha tarxeta agasallo para o pagamento, as taxas porcentuais "
+"aplicaranse sobre o valor dos Billetes menos o valor das tarxetas agasallo. "
+"Todas as taxas fixas suprimiranse se os Billetes poden pagarse integramente "
+"con tarxetas agasallo. Isto só funciona se a tarxeta agasallo se canjea ao "
+"enviar o pedido, non se se utiliza para pagar un pedido impagado máis tarde."
 
 #: pretix_servicefees/views.py:37
 msgid "Do not charge per-ticket service fee on add-on products"
-msgstr ""
+msgstr "Non cobrar comisión de servizo por Billete nos produtos adicionais"
 
 #: pretix_servicefees/views.py:41
 msgid "Do not charge per-ticket service fee on non-admission products"
-msgstr ""
+msgstr "Non cobrar comisión de servizo por Billete en produtos non admitidos"
 
 #: pretix_servicefees/views.py:45
 msgid "Do not charge per-ticket service fee on free products"
-msgstr ""
+msgstr "Non cobrar comisión de servizo por Billete en produtos gratuítos"
 
 #: pretix_servicefees/views.py:46
 msgid ""
 "Note that regardless of this setting, a per-ticket fee will not be charged "
 "if the entire order is free."
 msgstr ""
+"Teña en conta que, independentemente desta configuración, non se cobrará "
+"unha taxa por Billete se todo o pedido é gratuíto."
 
 #: pretix_servicefees/views.py:50
 msgid ""
 "Split taxes proportionate to the tax rates and net values of the ordered "
 "products."
 msgstr ""
+"Repartir os impostos proporcionalmente aos tipos impositivos e aos valores "
+"netos dos produtos pedidos."
 
 #: pretix_servicefees/views.py:51
 msgid ""
 "If not split based on ordered products, the tax rate falls back to the "
 "event’s base tax rate or no tax, if none is given."
 msgstr ""
+"Se non se divide en función dos produtos pedidos, o tipo impositivo redúcese "
+"ao tipo impositivo base do evento ou a ningún imposto, se non se indica "
+"ningún."
