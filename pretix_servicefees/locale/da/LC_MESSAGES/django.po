@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2018-03-19 11:00+0000\n"
-"Last-Translator: Mikkel Ricky <rimi@aarhus.dk>\n"
+"PO-Revision-Date: 2026-04-17 01:34+0000\n"
+"Last-Translator: Nikolai <nikolai@lengefeldt.de>\n"
 "Language-Team: Danish <https://translate.pretix.eu/projects/pretix/pretix-"
 "plugin-service-fees/da/>\n"
 "Language: da\n"
@@ -17,44 +17,46 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19.1\n"
+"X-Generator: Weblate 5.17\n"
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
-msgstr ""
+msgstr "Servicegebyrer"
 
 #: pretix_servicefees/apps.py:14
 msgid "This plugin allows to charge a service fee on all non-free orders."
 msgstr ""
+"Dette plugin gør det muligt at opkræve et servicegebyr på alle ordrer, der "
+"ikke er gratis."
 
 #: pretix_servicefees/signals.py:25
 msgid "Service Fee"
-msgstr ""
+msgstr "Servicegebyr"
 
 #: pretix_servicefees/signals.py:183
 msgid "per ticket"
-msgstr ""
+msgstr "pr. billet"
 
 #: pretix_servicefees/signals.py:187 pretix_servicefees/signals.py:191
 msgid "per order"
-msgstr ""
+msgstr "pr. ordre"
 
 #: pretix_servicefees/signals.py:194
 msgid "A service fee of {} will be added to the order total."
-msgstr ""
+msgstr "Der tilføjes et servicegebyr på {} til det samlede beløb for ordren."
 
 #: pretix_servicefees/signals.py:195
 msgid "plus"
-msgstr ""
+msgstr "plus"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
 msgid "Service fees"
-msgstr ""
+msgstr "Servicegebyrer"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:21
 msgid "Service fees with resellers"
-msgstr ""
+msgstr "Servicegebyrer hos forhandlere"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:23
 msgid ""
@@ -62,6 +64,9 @@ msgid ""
 "do not want to charge any fees through this sales channel, set them to zero "
 "explicity."
 msgstr ""
+"Hvis du lader felterne stå tomme, vil vi automatisk anvende værdierne "
+"ovenfor. Hvis du ikke ønsker at opkræve gebyrer via denne salgskanal, skal "
+"du udtrykkeligt indstille dem til nul."
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:31
 msgid "Save"
@@ -69,11 +74,11 @@ msgstr "Gem"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:56
 msgid "Fixed fee per order"
-msgstr ""
+msgstr "Fast gebyr pr. ordre"
 
 #: pretix_servicefees/views.py:17 pretix_servicefees/views.py:60
 msgid "Percentual fee per order"
-msgstr ""
+msgstr "Procentvis gebyr pr. ordre"
 
 #: pretix_servicefees/views.py:18 pretix_servicefees/views.py:61
 msgid ""
@@ -81,20 +86,25 @@ msgid ""
 "be calculated on the summed price of sold tickets, not on other fees like e."
 "g. shipping fees, if there are any."
 msgstr ""
+"Procentdel af ordretotalet. Bemærk, at denne procentdel i øjeblikket kun "
+"beregnes ud fra den samlede pris for solgte billetter og ikke ud fra andre "
+"gebyrer, såsom f.eks. forsendelsesomkostninger, hvis sådanne forekommer."
 
 #: pretix_servicefees/views.py:24 pretix_servicefees/views.py:67
 msgid "Fixed fee per ticket"
-msgstr ""
+msgstr "Fast pris pr. billet"
 
 #: pretix_servicefees/views.py:25 pretix_servicefees/views.py:69
 msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
 msgstr ""
+"Dette gebyr tilføjes for hver solgt billet, med undtagelse af gratis varer "
+"og tilvalg."
 
 #: pretix_servicefees/views.py:29
 msgid "Do not charge service fee on tickets paid with gift cards"
-msgstr ""
+msgstr "Der opkræves ikke servicegebyr for billetter, der betales med gavekort"
 
 #: pretix_servicefees/views.py:30
 msgid ""
@@ -104,33 +114,47 @@ msgid ""
 "This only works if the gift card is redeemd when the order is submitted, not "
 "if it's used to pay an unpaid order later."
 msgstr ""
+"Hvis der betales med et gavekort, beregnes de procentvise gebyrer på "
+"billetternes værdi fratrukket gavekortets værdi. Alle faste gebyrer "
+"bortfalder, hvis billetterne kan betales fuldt ud med gavekort. Dette gælder "
+"kun, hvis gavekortet indløses ved bestillingens afgivelse, og ikke hvis det "
+"bruges til at betale en ubetalt ordre på et senere tidspunkt."
 
 #: pretix_servicefees/views.py:37
 msgid "Do not charge per-ticket service fee on add-on products"
-msgstr ""
+msgstr "Der opkræves ikke et servicegebyr pr. billet for tilvalgsprodukter"
 
 #: pretix_servicefees/views.py:41
 msgid "Do not charge per-ticket service fee on non-admission products"
 msgstr ""
+"Der opkræves ikke et servicegebyr pr. billet for produkter, der ikke er "
+"adgangsgivende"
 
 #: pretix_servicefees/views.py:45
 msgid "Do not charge per-ticket service fee on free products"
-msgstr ""
+msgstr "Der opkræves ikke et servicegebyr pr. billet for gratis produkter"
 
 #: pretix_servicefees/views.py:46
 msgid ""
 "Note that regardless of this setting, a per-ticket fee will not be charged "
 "if the entire order is free."
 msgstr ""
+"Bemærk, at uanset denne indstilling opkræves der ikke et gebyr pr. billet, "
+"hvis hele bestillingen er gratis."
 
 #: pretix_servicefees/views.py:50
 msgid ""
 "Split taxes proportionate to the tax rates and net values of the ordered "
 "products."
 msgstr ""
+"Fordel skatten i forhold til skattesatserne og nettoværdierne for de "
+"bestilte produkter."
 
 #: pretix_servicefees/views.py:51
 msgid ""
 "If not split based on ordered products, the tax rate falls back to the "
 "event’s base tax rate or no tax, if none is given."
 msgstr ""
+"Hvis der ikke foretages en opdeling på baggrund af de bestilte produkter, "
+"anvendes arrangementets standardskattesats, eller der opkræves ingen skat, "
+"hvis der ikke er angivet nogen."
