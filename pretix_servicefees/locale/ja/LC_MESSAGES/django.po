@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2026-02-23 14:34+0000\n"
-"Last-Translator: Hijiri Umemoto <hijiri@umemoto.org>\n"
+"PO-Revision-Date: 2026-05-12 17:34+0000\n"
+"Last-Translator: Yasunobu YesNo Kawaguchi <kawaguti@gmail.com>\n"
 "Language-Team: Japanese <https://translate.pretix.eu/projects/pretix/pretix-"
 "plugin-service-fees/ja/>\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16\n"
+"X-Generator: Weblate 5.17.1\n"
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
@@ -117,15 +117,15 @@ msgstr ""
 
 #: pretix_servicefees/views.py:37
 msgid "Do not charge per-ticket service fee on add-on products"
-msgstr "アドオン商品には、チケット1枚ごとのサービス料を請求しない"
+msgstr "アドオン製品にはチケットごとの手数料を課金しない"
 
 #: pretix_servicefees/views.py:41
 msgid "Do not charge per-ticket service fee on non-admission products"
-msgstr "入場に使用できない商品には、チケット1枚ごとの手数料を請求しない"
+msgstr "入場権のない製品にはチケットごとの手数料を課金しない"
 
 #: pretix_servicefees/views.py:45
 msgid "Do not charge per-ticket service fee on free products"
-msgstr "無料の商品には、チケット1枚ごとに適用される手数料を請求しない"
+msgstr "無料の製品には、チケット1枚ごとに適用される手数料を請求しない"
 
 #: pretix_servicefees/views.py:46
 msgid ""
@@ -138,11 +138,12 @@ msgstr "この設定に関係なく、注文全体が無料の場合、チケッ
 msgid ""
 "Split taxes proportionate to the tax rates and net values of the ordered "
 "products."
-msgstr "税額の分割は、注文された商品の税率と本体価格に比例します。"
+msgstr "税額の分割は、注文された製品の税率と本体価格に比例します。"
 
 #: pretix_servicefees/views.py:51
 msgid ""
 "If not split based on ordered products, the tax rate falls back to the "
 "event’s base tax rate or no tax, if none is given."
-msgstr "分割が注文された商品に基づかない場合、税率はイベントの基本税率を参照するか、"
+msgstr ""
+"分割が注文された製品に基づかない場合、税率はイベントの基本税率を参照するか、"
 "あるいは、設定がなければ税額なしになります。"
