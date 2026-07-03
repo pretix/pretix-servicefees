@@ -5,6 +5,7 @@ from django import forms
 from django.dispatch import receiver
 from django.http import HttpRequest
 from django.urls import resolve, reverse
+from django.utils.html import format_html
 from django.utils.translation import gettext, gettext_lazy as _
 from pretix.base.decimal import round_decimal
 from pretix.base.models import CartPosition, Event, TaxRule
@@ -252,9 +253,13 @@ def front_page_top_recv(sender: Event, **kwargs):
         fees = fees + ["{} % {}".format(fee_percent, gettext("per order"))]
 
     if fee_per_ticket or fee_abs or fee_percent:
-        return "<p>%s</p>" % gettext(
-            "A service fee of {} will be added to the order total."
-        ).format(" {} ".format(gettext("plus")).join(fees))
+        sep = " {} ".format(gettext("plus"))
+        return format_html(
+            "<p>{text}</p>",
+            text=gettext(
+                "A service fee of {} will be added to the order total."
+            ).format(sep.join(fees))
+        )
 
 
 @receiver(order_meta_from_request, dispatch_uid="servicefees_order_meta")
