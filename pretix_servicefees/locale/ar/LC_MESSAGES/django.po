@@ -8,37 +8,37 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-14 11:41+0100\n"
-"PO-Revision-Date: 2024-02-15 13:58+0000\n"
-"Last-Translator: Martin Gross <gross@rami.io>\n"
-"Language-Team: Arabic <https://translate.pretix.eu/projects/pretix/"
-"pretix-plugin-service-fees/ar/>\n"
+"PO-Revision-Date: 2026-07-12 21:48+0000\n"
+"Last-Translator: ahmed badr <ahmedbadr@oma.com.eg>\n"
+"Language-Team: Arabic <https://translate.pretix.eu/projects/pretix/pretix-"
+"plugin-service-fees/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.3.1\n"
+"X-Generator: Weblate 2026.7.1\n"
 
 #: pretix_servicefees/apps.py:11
 msgid "Service Fees"
-msgstr ""
+msgstr "رسوم الخدمة"
 
 #: pretix_servicefees/apps.py:14
 msgid "This plugin allows to charge a service fee on all non-free orders."
-msgstr ""
+msgstr "يتيح هذا المكون الإضافي فرض رسوم خدمة على جميع الطلبات غير المجانية."
 
 #: pretix_servicefees/signals.py:25
 msgid "Service Fee"
-msgstr ""
+msgstr "رسوم الخدمة"
 
 #: pretix_servicefees/signals.py:183
 msgid "per ticket"
-msgstr ""
+msgstr "لكل تذكرة"
 
 #: pretix_servicefees/signals.py:187 pretix_servicefees/signals.py:191
 msgid "per order"
-msgstr ""
+msgstr "لكل طلب"
 
 #: pretix_servicefees/signals.py:194
 msgid "A service fee of {} will be added to the order total."
@@ -46,16 +46,16 @@ msgstr "{} رسوم الخدمة ستضاف على كل طلب."
 
 #: pretix_servicefees/signals.py:195
 msgid "plus"
-msgstr ""
+msgstr "المزيد"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:5
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:10
 msgid "Service fees"
-msgstr ""
+msgstr "رسوم الخدمة"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:21
 msgid "Service fees with resellers"
-msgstr ""
+msgstr "رسوم الخدمة مع الموزعين"
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:23
 msgid ""
@@ -63,18 +63,20 @@ msgid ""
 "do not want to charge any fees through this sales channel, set them to zero "
 "explicity."
 msgstr ""
+"إذا تركت القيم فارغة، فسوف نلجأ إلى القيم المذكورة أعلاه. وإذا كنت لا ترغب في "
+"فرض أي رسوم عبر قناة البيع هذه، فقم بتعيينها صراحةً على الصفر."
 
 #: pretix_servicefees/templates/pretix_servicefees/settings.html:31
 msgid "Save"
-msgstr ""
+msgstr "حفظ"
 
 #: pretix_servicefees/views.py:13 pretix_servicefees/views.py:56
 msgid "Fixed fee per order"
-msgstr ""
+msgstr "رسوم ثابتة لكل طلب"
 
 #: pretix_servicefees/views.py:17 pretix_servicefees/views.py:60
 msgid "Percentual fee per order"
-msgstr ""
+msgstr "الرسوم المئوية لكل طلب"
 
 #: pretix_servicefees/views.py:18 pretix_servicefees/views.py:61
 msgid ""
@@ -82,20 +84,25 @@ msgid ""
 "be calculated on the summed price of sold tickets, not on other fees like e."
 "g. shipping fees, if there are any."
 msgstr ""
+"النسبة المئوية من إجمالي قيمة الطلب. يرجى ملاحظة أن هذه النسبة المئوية تُحسب "
+"حاليًا على أساس مجموع سعر التذاكر المباعة فقط، وليس على أساس الرسوم الأخرى مثل "
+"رسوم الشحن، إن وجدت."
 
 #: pretix_servicefees/views.py:24 pretix_servicefees/views.py:67
 msgid "Fixed fee per ticket"
-msgstr ""
+msgstr "رسوم ثابتة لكل تذكرة"
 
 #: pretix_servicefees/views.py:25 pretix_servicefees/views.py:69
 msgid ""
 "This fee will be added for each ticket sold, except for free items and "
 "addons."
 msgstr ""
+"سيتم إضافة هذه الرسوم على كل تذكرة يتم بيعها، باستثناء العناصر المجانية "
+"والإضافات."
 
 #: pretix_servicefees/views.py:29
 msgid "Do not charge service fee on tickets paid with gift cards"
-msgstr ""
+msgstr "لا تفرض رسوم خدمة على التذاكر المدفوعة ببطاقات الهدايا"
 
 #: pretix_servicefees/views.py:30
 msgid ""
@@ -105,33 +112,43 @@ msgid ""
 "This only works if the gift card is redeemd when the order is submitted, not "
 "if it's used to pay an unpaid order later."
 msgstr ""
+"في حالة استخدام بطاقة هدايا للدفع، سيتم تطبيق الرسوم المئوية على قيمة "
+"التذاكر مطروحًا منها قيمة بطاقات الهدايا. سيتم إلغاء جميع الرسوم الثابتة إذا "
+"أمكن دفع ثمن التذاكر بالكامل باستخدام بطاقات الهدايا. ولا ينطبق هذا إلا إذا تم "
+"استرداد قيمة بطاقة الهدايا عند تقديم الطلب، وليس إذا تم استخدامها لدفع ثمن "
+"طلب لم يتم دفعه لاحقًا."
 
 #: pretix_servicefees/views.py:37
 msgid "Do not charge per-ticket service fee on add-on products"
-msgstr ""
+msgstr "لا تفرض رسوم خدمة لكل تذكرة على المنتجات الإضافية"
 
 #: pretix_servicefees/views.py:41
 msgid "Do not charge per-ticket service fee on non-admission products"
-msgstr ""
+msgstr "لا تفرض رسوم خدمة لكل تذكرة على المنتجات غير المتعلقة بالدخول"
 
 #: pretix_servicefees/views.py:45
 msgid "Do not charge per-ticket service fee on free products"
-msgstr ""
+msgstr "لا تفرض رسوم خدمة لكل تذكرة على المنتجات المجانية"
 
 #: pretix_servicefees/views.py:46
 msgid ""
 "Note that regardless of this setting, a per-ticket fee will not be charged "
 "if the entire order is free."
 msgstr ""
+"يرجى ملاحظة أنه بغض النظر عن هذا الإعداد، لن يتم تحصيل رسوم لكل تذكرة إذا كان "
+"الطلب بأكمله مجانيًّا."
 
 #: pretix_servicefees/views.py:50
 msgid ""
 "Split taxes proportionate to the tax rates and net values of the ordered "
 "products."
 msgstr ""
+"قسّم الضرائب بما يتناسب مع معدلات الضرائب والقيم الصافية للمنتجات المطلوبة."
 
 #: pretix_servicefees/views.py:51
 msgid ""
 "If not split based on ordered products, the tax rate falls back to the "
 "event’s base tax rate or no tax, if none is given."
 msgstr ""
+"وإذا لم يتم التقسيم بناءً على المنتجات المطلوبة، فإن معدل الضريبة يعود إلى "
+"المعدل الضريبي الأساسي للحدث، أو لا تُفرض أي ضريبة في حالة عدم تحديد معدل ضريبي."
