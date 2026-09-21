@@ -1,5 +1,4 @@
 import copy
-from collections import defaultdict
 from decimal import Decimal
 from django import forms
 from django.dispatch import receiver
@@ -8,21 +7,17 @@ from django.urls import resolve, reverse
 from django.utils.html import format_html
 from django.utils.translation import gettext, gettext_lazy as _
 from pretix.base.decimal import round_decimal
-from pretix.base.models import CartPosition, Event, TaxRule
+from pretix.base.models import Event, TaxRule
 from pretix.base.models.orders import OrderFee
 from pretix.base.services.tax import split_fee_for_taxes
 from pretix.base.settings import settings_hierarkey
 from pretix.base.signals import (
-    event_copy_data,
-    item_copy_data,
-    order_fee_calculation,
+    event_copy_data, item_copy_data, order_fee_calculation,
 )
 from pretix.base.templatetags.money import money_filter
 from pretix.control.signals import item_forms, nav_event_settings
 from pretix.presale.signals import (
-    fee_calculation_for_cart,
-    front_page_top,
-    order_meta_from_request,
+    fee_calculation_for_cart, front_page_top, order_meta_from_request,
 )
 from pretix.presale.views import get_cart
 from pretix.presale.views.cart import cart_session
@@ -178,8 +173,7 @@ def cart_fee(sender: Event, request: HttpRequest, invoice_address, total, **kwar
     mod = ""
     try:
         from pretix_resellers.utils import (
-            ResellerException,
-            get_reseller_and_user,
+            ResellerException, get_reseller_and_user,
         )
     except ImportError:
         pass
@@ -267,8 +261,7 @@ def order_meta_signal(sender: Event, request: HttpRequest, **kwargs):
     meta = {}
     try:
         from pretix_resellers.utils import (
-            ResellerException,
-            get_reseller_and_user,
+            ResellerException, get_reseller_and_user,
         )
     except ImportError:
         pass
