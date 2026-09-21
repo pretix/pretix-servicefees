@@ -237,16 +237,24 @@ def front_page_top_recv(sender: Event, **kwargs):
         ]
 
     fee_abs = sender.settings.get("service_fee_abs", as_type=Decimal)
-    if fee_abs:
+    fee_percent = sender.settings.get("service_fee_percent", as_type=Decimal)
+    if fee_abs and fee_percent:
+        fees = fees + [
+            "{} {} {} % {}".format(
+                money_filter(fee_abs, sender.currency),
+                gettext("plus"),
+                fee_percent,
+                gettext("per order")
+            )
+        ]
+    elif fee_abs:
         fees = fees + [
             "{} {}".format(money_filter(fee_abs, sender.currency), gettext("per order"))
         ]
-
-    fee_percent = sender.settings.get("service_fee_percent", as_type=Decimal)
-    if fee_percent:
+    elif fee_percent:
         fees = fees + ["{} % {}".format(fee_percent, gettext("per order"))]
 
-    if fee_per_ticket or fee_abs or fee_percent:
+    if fees:
         sep = " {} ".format(gettext("plus"))
         return format_html(
             "<p>{text}</p>",
